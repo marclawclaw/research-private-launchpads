@@ -1,4 +1,9 @@
 
+## [2026-03-28 03:15] KYC-Gated / Accredited Investor Token Sales & Compliance — ok
+- Notes written: 5
+- Sources crawled: qubit.capital/blog/token-sales-regulations, sumsub.com/blog/kyc-legal-for-sto, sec.gov/cf-crypto-securities-041025, republic.com/token-dpa, build.avax.network/integrations/securitize, chainalysis.com/erc-3643, erc3643.org, docs.erc3643.org, crowdfundinsider.com (Republic 2025 update), bny.com (Securitize CLO launch)
+- Key finding: ERC-3643 is the dominant on-chain KYC enforcement standard; Securitize demonstrated institutional-grade compliance with BlackRock BUIDL. Privacy gap: no ZK-based accredited investor proof exists — strong Logos opportunity.
+
 ## [2026-03-28 00:15] ZK Privacy-Preserving Token Issuance — ok
 - Notes written: 7
 - Sources crawled: aztec.network/basics, aztec.network/blog (governance + security + aztec.nr posts), github.com/AztecProtocol/aztec-packages, penumbra.zone, protocol.penumbra.zone, github.com/penumbra-zone/penumbra, cache256.com/shielded-pools-analysis, penumbra.zone/blog/shielded-staking, bankless.com/aztec-primetime, web search supplemental
