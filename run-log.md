@@ -1,4 +1,9 @@
 
+## [2026-03-28 06:15] Token Vesting & Distribution Protocols — ok
+- Notes written: 7
+- Sources crawled: streamflow.finance/blog/token-vesting-the-definitive-guide, sablier.com, github.com/sablier-labs/evm-monorepo, llamapay.io, github.com/AbdelStark/token-vesting-contracts, team.finance/vesting, blog.team.finance
+- Key finding: Streaming protocols (Sablier, LlamaPay, Streamflow) are replacing discrete unlocks. Sablier is the EVM gold standard (27 chains, a16z-backed, NFT stream ownership). No protocol offers privacy-preserving vesting — strong Logos opportunity. LlamaPay's shared-contract gas model (3–4x cheaper) is a key design lesson.
+
 ## [2026-03-28 03:15] KYC-Gated / Accredited Investor Token Sales & Compliance — ok
 - Notes written: 5
 - Sources crawled: qubit.capital/blog/token-sales-regulations, sumsub.com/blog/kyc-legal-for-sto, sec.gov/cf-crypto-securities-041025, republic.com/token-dpa, build.avax.network/integrations/securitize, chainalysis.com/erc-3643, erc3643.org, docs.erc3643.org, crowdfundinsider.com (Republic 2025 update), bny.com (Securitize CLO launch)
