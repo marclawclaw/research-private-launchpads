@@ -18,7 +18,29 @@ Flaunch is a memecoin launchpad on Base built by Flayer Labs that uses Uniswap V
 
 > [!fact] Flaunch launched on Base in late January 2025 and was the first production launchpad to leverage Uniswap V4 hooks at scale. It returned over $628,900 in revenue to creators within the first 2 days.
 
-> [!outdated] No cumulative volume, TVL, or total tokens launched data found as of April 2026. Flaunch is tracked on DefiLlama (defillama.com/protocol/flaunch) but the page was not accessible during crawl. The $628.9K figure is the only confirmed traction metric, from the first 48 hours post-launch. The platform is relatively new (Jan 2025) and may not yet have published aggregate statistics.
+### Scale & Traction
+
+> [!fact] Confirmed from DefiLlama (defillama.com/protocol/flaunch), accessed Apr 2026
+> - **Current TVL:** $2.03M
+> - **Fees (Annualized):** $691,667
+> - **Revenue (Annualized):** $687,775
+> - **Peak TVL:** ~$3.5M (late 2025 / early 2026)
+
+#### Quarterly Income Statement (DefiLlama)
+
+| Quarter | Gross Protocol Revenue | Gross Profit | Earnings |
+|---------|----------------------|--------------|----------|
+| Q1 2025 | $1.77M | $1.31M | $1.31M |
+| Q2 2025 | $61.66K | $49.94K | $49.94K |
+| Q3 2025 | $586.48K | $557.20K | $557.20K |
+| Q4 2025 | $678.57K | $671.98K | $671.98K |
+| Q1 2026 | $100.63K | $92.22K | $92.22K |
+
+**Annual totals:**
+- **2025:** ~$3.1M revenue (Q1-Q4 sum); ~$2.59M gross profit
+- **2026 (Q1 only):** $100.63K revenue (significant decline)
+
+> [!analysis] Flaunch had a strong launch quarter (Q1 2025 = $1.77M revenue, driven by initial hype and the $628.9K first-48h creator revenue). Activity dropped 97% in Q2 2025, partially recovered in Q3-Q4 (~$580-680K/quarter), but has collapsed again in Q1 2026 ($100K). TVL peaked at ~$3.5M and sits at $2.03M. This suggests the platform hasn't achieved sustained product-market fit despite the innovative V4 hooks architecture. Compared to Pump.fun ($256M in its peak quarter), Flaunch is 150x smaller. The near-zero cost of revenue (protocol fees ≈ gross profit) confirms the hook-based architecture has minimal operational overhead.
 
 ### Architecture: Hooks as Bonding Curve
 - The bonding curve logic lives inside a **Uniswap V4 hook contract** (specifically the `PositionManager` and `FairLaunch` contracts), not in a separate launchpad contract
