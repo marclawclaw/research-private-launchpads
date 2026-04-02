@@ -25,24 +25,32 @@ Metaplex Genesis is a Solana-native smart contract framework for Token Generatio
 > - **Key integrations:** Pump.fun (11.7M tokens), Believe/LaunchCoin, Raydium LaunchLab (258K+ assets), Jup Studio, letsBONK
 > - **Genesis status:** Alpha → SDK launched Dec 2025 for third-party integrations
 
-### Metaplex Protocol Revenue (Yearly / Quarterly)
+### Metaplex Protocol Fees (Quarterly — DefiLlama)
 
-> [!fact] Compiled from Messari State of Metaplex reports, H1 2025 recap, monthly roundups
+> [!fact] Source: DefiLlama API (`api.llama.fi/summary/fees/metaplex`), accessed Apr 2 2026. Confirmed by Messari quarterly reports.
 
-| Period | Protocol Revenue | Notes |
-|--------|-----------------|-------|
-| 2023 | ~$3-5M (est.) | NFT-dominated; peak weekly fees ~11,343 SOL (~$840K/wk) in Dec 2023 |
-| Q1 2024 | $3.6M | Fungible token creation ramping up |
-| Q4 2024 | Record quarter | Nov 2024 hit $3.5M monthly ATH; 1.4M tokens minted that month alone |
-| **2024 total** | **~$12-15M (est.)** | Transition from NFT-dominated to fungible token-dominated revenue |
-| Q1 2025 | $8.3M | 129% YoY growth; Jan 2025 = $4.3M monthly ATH |
-| H1 2025 | $13.7M | Weekly avg ~$522K; consistent despite market volatility |
-| Jul 2025 | $2.5M/month | Genesis + TM tokens = 94% of revenue |
-| Aug 2025 | $2.5M/month | Genesis launchpad specifically = $422K (240% MoM growth) |
-| Sep 2025 | ~$2.5M/month | 20M+ cumulative fungible tokens |
-| **2025 total (est.)** | **~$27-30M** | Based on H1 ($13.7M) + extrapolated H2 run rate |
+| Quarter | Protocol Fees | Notes |
+|---------|--------------|-------|
+| Q2 2023 | $103K | Early fee collection (started mid-2023) |
+| Q3 2023 | $243K | NFT-dominated |
+| Q4 2023 | $2.67M | NFT boom; peak weekly = 11,343 SOL |
+| Q1 2024 | $3.65M | Fungible tokens ramping up |
+| Q2 2024 | $4.00M | |
+| Q3 2024 | $3.08M | |
+| Q4 2024 | $8.41M | Nov 2024 = $3.5M monthly ATH |
+| **Q1 2025** | **$8.25M** | **Jan 2025 = $4.3M monthly ATH** |
+| Q2 2025 | $5.50M | |
+| Q3 2025 | $6.99M | Genesis = $422K/month (Aug) |
+| Q4 2025 | $3.52M | Genesis SDK launched Dec |
+| Q1 2026 | $1.04M | Significant decline |
 
-> [!analysis] Metaplex's revenue roughly doubled YoY (2023→2024→2025). Genesis itself is still early — most revenue comes from Token Metadata fees charged to platforms like Pump.fun, not from Genesis launchpad directly. Genesis revenue ($422K/month) is tiny compared to Pump.fun ($45M+/month). However, Genesis is the infrastructure layer — it powers the compliance/permissioning features that Pump.fun lacks. The key insight: Metaplex earns from every token on Solana regardless of which launchpad is used.
+**Annual totals:**
+- **2023:** $3.02M (partial, Q2-Q4)
+- **2024:** $19.14M
+- **2025:** $24.26M
+- **All-time cumulative:** $47.47M
+
+> [!analysis] Metaplex 2024→2025 growth was ~27% YoY ($19.1M→$24.3M), slower than the ~6x jump from 2023→2024. Q1 2026 shows a steep decline ($1.04M vs $8.25M in Q1 2025) — 87% drop YoY, likely reflecting the broader Solana memecoin cooldown. Genesis itself is still a small fraction of total revenue — most comes from Token Metadata fees charged to platforms like Pump.fun. The key insight: Metaplex earns from every token on Solana regardless of which launchpad is used, making it infrastructure-layer rather than application-layer revenue.
 
 ### Mechanism
 - Smart contract program: `GNS1S5J5AspKXgpjz6SvKL66kPaKWAhaGRhCqPRxii2B` (mainnet + devnet)
