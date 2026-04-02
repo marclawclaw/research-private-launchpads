@@ -1,4 +1,16 @@
 
+## [2026-04-02 14:10] RFP-015/016 PR Gap Analysis — ok
+- Notes written: 5 new notes, 1 updated (LBP), 1 index updated
+- Sources crawled: github.com/flayerlabs/flaunchgg-contracts, bankless.com/flaunch, blockworks.co/uniswap-v4, github.com/Uniswap/v2-periphery (UniswapV2Library.sol), medium.com/gnosis-auction, docs.molecule.to/bio.xyz, protocol.penumbra.zone, arxiv.org/pdf/2301.13785, ideausher.com/zk-allowlist, obj.umiacs.umd.edu/zk-creds, aztec.network/ticker
+- New notes:
+  - ethereum-launchpads/Flaunch (Uniswap V4 Hooks Launchpad).md — hook-based bonding curve, fair launch, Progressive Bid Wall, fee routing
+  - ethereum-launchpads/Bonding Curve Rounding and Integer Arithmetic.md — V2/V3/V4 rounding direction, pool solvency, graduation implications
+  - ethereum-launchpads/Collateral Vesting for Buyer Protection.md — buyer-protection vesting pattern, milestone authority design, cross-program composability
+  - ethereum-launchpads/Batch Auctions and Commit-Reveal Token Sales.md — Gnosis Auction, commit-reveal, Penumbra sealed-bid, comparison vs bonding curves
+  - zk-privacy-issuance/Allowlist Privacy and K-Anonymity Analysis.md — k-anonymity in allowlists, LEZ counter-argument, ZK set membership proofs
+- Updated: LBP note with weight interpolation formula, spot price formula, timestamp dependency, lazy vs poke computation, collateral ownership problem
+- Key finding: RFP-015/016 PR surfaced 6 significant design gaps not in prior research. The most critical: (1) hook-based bonding curves are production-ready (Flaunch), (2) LBP collateral at close belongs to buyers not creator, (3) batch auctions are stronger anti-frontrun mechanisms than bonding curves, (4) collateral vesting for buyer protection is an unexplored design space.
+
 ## [2026-03-28 06:15] Token Vesting & Distribution Protocols — ok
 - Notes written: 7
 - Sources crawled: streamflow.finance/blog/token-vesting-the-definitive-guide, sablier.com, github.com/sablier-labs/evm-monorepo, llamapay.io, github.com/AbdelStark/token-vesting-contracts, team.finance/vesting, blog.team.finance

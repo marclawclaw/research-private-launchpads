@@ -7,6 +7,7 @@ last_updated: 2026-04-02
 sources:
   - https://balancer.gitbook.io/balancer/smart-contracts/smart-pools/liquidity-bootstrapping-faq
   - https://help.fjordfoundry.com/fjord-foundry-docs/for-sale-creators/faqs-creators/lbp-faq
+  - https://github.com/logos-co/rfp/pull/24
 ---
 
 ## Summary
@@ -107,10 +108,108 @@ See also: [[Token Sale Permissioning Mechanisms]], [[Fjord Foundry]]
 
 > [!analysis] The Balancer LBP is the most transparent close mechanism of any platform studied — all controls are on-chain, the pause permission is set immutably at creation (so participants can verify before buying), and weight schedules are deterministic. The key design insight is that pausing swaps is a "circuit breaker" — it halts trading but doesn't alter the pricing algorithm. When resumed, the price curve continues as if uninterrupted. This is a well-designed emergency mechanism that prevents manipulation while allowing legitimate safety interventions.
 
+## Weight Interpolation and Spot Price Formulas
+
+> [!fact] These formulas are derived from the Balancer weighted pool math, confirmed from Balancer docs and weighted pool whitepapers.
+
+### Weight Interpolation Formula
+
+At any point in time `t`, the weight of token A is linearly interpolated:
+
+```
+w_A(t) = w_start + (w_end - w_start) × (t - t_start) / (t_end - t_start)
+```
+
+Where:
+- `w_start` = initial weight (e.g., 0.99 for 99% token weight at launch)
+- `w_end` = final weight (e.g., 0.01 for 1% token weight at close)
+- `t_start` = auction start timestamp
+- `t_end` = auction end timestamp
+- `t` = current block timestamp
+
+The collateral weight is the complement: `w_collateral(t) = 1 - w_A(t)`
+
+### Spot Price Formula
+
+At any reserve state, the spot price of the project token in terms of collateral is:
+
+```
+price = (reserve_collateral / w_collateral) / (reserve_token / w_token)
+```
+
+Equivalently:
+```
+price = (reserve_collateral × w_token) / (reserve_token × w_collateral)
+```
+
+As weights shift (w_token decreases, w_collateral increases), price naturally falls even if reserves are unchanged — this is the mechanism behind the LBP's declining price curve.
+
+### Timestamp Dependency and Arbitrage Risk
+
+- **Every buy transaction depends on the current block timestamp** to compute the correct weight at the time of the swap
+- The weight function is continuous in theory but discrete in practice: weights update block-by-block
+- If the weight curve is not computed continuously (e.g., if weight update calls are missed or `pokeWeights` is not called), the pool price diverges from the theoretical curve
+- This creates arbitrage opportunities: a stale pool price (too high or too low relative to the correct weight-adjusted price) can be exploited by bots
+
+### Lazy Computation vs Explicit Poke
+
+- **Lazy (default)**: The pool computes current weights at each buy transaction using the stored weight schedule. No external call needed — weights are always correct at swap time.
+- **Explicit poke (`pokeWeights`)**: A public function that any address can call to advance the weight schedule. This was more relevant in older Balancer v1 implementations where weights were not lazily computed on every swap.
+- On modern Balancer v2/v3 and Fjord: lazy computation is used — every swap triggers weight recalculation based on `block.timestamp`. No poke transactions needed.
+
+> [!analysis] The poke model is inferior to lazy computation for security: if `pokeWeights` is not called, price can drift. Lazy computation ensures the on-chain price always reflects the current weight without relying on external callers. Logos implementations should use lazy weight computation.
+
+## LBP Collateral Ownership and Failed Sale Protection
+
+> [!analysis] This is a critical trust issue that is NOT addressed in most LBP implementations. It is raised in the Logos RFP-015/016 review comments.
+
+### The Collateral Ownership Problem
+
+In a standard LBP setup:
+- **Creator deposits**: Project tokens + zero (or near-zero) collateral
+- **Buyers deposit**: Collateral (USDC/ETH) in exchange for project tokens at AMM price
+- **At close**: All collateral in the pool was paid by buyers
+
+If the sale ends (either successfully or failed):
+- The creator calls `removeToken` or removes liquidity to withdraw from the pool
+- They receive: remaining project tokens + **all collateral in the pool**
+- The collateral they receive was entirely contributed by buyers
+
+> [!analysis] In a failed or underperforming LBP, returning collateral to the creator is equivalent to returning buyer funds to the project team. The buyers have already paid (swapped their collateral for tokens); there is no refund mechanism. The project team walks away with buyer money even if the project delivers nothing.
+
+### Why This Is Weaker Than Bonding Curve Protection
+
+In a bonding curve with a soft cap and refund mechanism:
+- If the raise fails (soft cap not met), each buyer's individual contribution is tracked
+- Buyers can individually claim refunds against their specific purchase record
+- There is a 1:1 relationship between each buyer's payment and their refund claim
+
+In an LBP:
+- All collateral is pooled in the AMM — there are no individual buyer records
+- If the sale underperforms, there is no mechanism to return collateral to the individual buyers who paid it
+- The LBP creator simply exits the pool and takes the collateral
+- Buyers who paid are left holding tokens with no recourse
+
+> [!fact] LBP buyer protection is structural (declining price deters overpaying) rather than contractual (no individual refund rights). Bonding curves with soft caps can offer contractual refund rights because individual purchase records are tracked.
+
+### What Should Happen in a Failed Sale
+
+The correct design (not currently implemented in standard Balancer LBP):
+- Failed sale = sale did not meet a minimum raise threshold (soft cap)
+- In this case, collateral in the pool at close should be **returned to buyers, not to the creator**
+- This requires: (1) tracking individual buyer contributions within the LBP, or (2) using a separate claim contract that records purchases during the LBP
+- Fjord Foundry partially addresses this via their off-chain tracking and claim mechanism, but at the protocol level Balancer LBP has no soft cap or buyer refund
+
+> [!analysis] Designing an LBP-style mechanism with buyer protection requires adding a soft cap check at pool close and routing collateral to a buyer refund contract rather than directly to the creator. This is a significant protocol-level change that doesn't exist in any current LBP implementation.
+
 ## Open Questions
 - Can LBPs be combined with ZK-proof identity gating (e.g., prove KYC without revealing address)?
 - How does Fjord's "zero liquidity LBP" work at the smart contract level vs. classic Balancer LBP?
+- Is there any production LBP implementation with a soft cap + collateral refund mechanism for buyers?
+- How can the weight interpolation formula be implemented in a non-Ethereum environment (e.g., CosmWasm) without timestamp manipulation risks?
+- Can the `cancelAuthority` pattern from [[Collateral Vesting for Buyer Protection]] be applied to LBPs to return failed-sale collateral to buyers?
 
 ## Sources
 - https://balancer.gitbook.io/balancer/smart-contracts/smart-pools/liquidity-bootstrapping-faq
 - https://help.fjordfoundry.com/fjord-foundry-docs/for-sale-creators/faqs-creators/lbp-faq
+- https://github.com/logos-co/rfp/pull/24 (PR discussion on weight formulas and collateral ownership)
