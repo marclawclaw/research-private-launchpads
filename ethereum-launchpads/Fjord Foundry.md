@@ -3,7 +3,7 @@ topic: Fjord Foundry
 type: competitor
 tags: [ethereum, launchpad, lbp, token-sale, permissioned]
 confidence: high
-last_updated: 2026-03-27
+last_updated: 2026-04-02
 sources:
   - https://www.fjordfoundry.com/
   - https://help.fjordfoundry.com/fjord-foundry-docs/for-sale-creators/faqs-creators/lbp-faq
@@ -33,6 +33,17 @@ Fjord Foundry is an Ethereum-based token sale platform specialising in Liquidity
 - Zero-liquidity LBPs lower barrier to entry for early-stage projects
 
 > [!analysis] Fjord explicitly rejects token-gating on their own platform, distinguishing themselves from Polkastarter/DAO Maker tier models. Permissioning is optional, project-side.
+
+## Refund & Participant Protection
+
+> [!analysis] No native refund mechanism — LBP purchases are market trades, not subscriptions
+
+- **Refund window:** No. LBP purchases are AMM swaps — once executed, they are final. There is no post-purchase refund window or grace period.
+- **Minimum raise threshold (soft cap):** No. LBPs have no minimum raise requirement. The sale runs regardless of how much capital is deposited. If demand is low, the price simply falls to meet it.
+- **Post-launch performance refund:** No. LBP tokens are freely traded on the AMM during the sale. Participants can sell back during the sale window if it's configured as buy+sell mode, but this is a market transaction at current AMM price, not a guaranteed refund.
+- **Cancellation rights:** Limited. During the LBP, participants can sell tokens back into the pool (if buy+sell mode is enabled), but at market price — not at their purchase price. After the LBP ends, tokens are distributed and there is no platform-level refund mechanism.
+
+> [!analysis] The LBP's declining-price mechanism provides *implicit* buyer protection: since price starts high and falls over time, patient buyers get better prices. Early buyers who overpay can sell back during the sale at market price, but this is not a guaranteed refund. Fjord's vesting feature (optional cliff + linear vesting post-LBP) locks tokens, further removing any post-sale refund possibility.
 
 ## Open Questions
 - Does Fjord support on-chain KYC/identity proofs for whitelists, or only address-based allowlists?

@@ -3,7 +3,7 @@ topic: Polkastarter
 type: competitor
 tags: [ethereum, polkadot, launchpad, ido, permissioned, pols-staking, lottery]
 confidence: high
-last_updated: 2026-03-27
+last_updated: 2026-04-02
 sources:
   - https://polkastarter.com/
   - https://blog.polkastarter.com/how-to-participate-in-a-polkastarter-ido/
@@ -33,6 +33,17 @@ Polkastarter is a decentralised IDO launchpad (originally Polkadot-based, now mu
 > [!fact] Polkastarter requires 7-day minimum hold before IDO eligibility — creating a natural lock-in/commitment signal
 
 > [!analysis] Lottery + stake model is more egalitarian than DAO Maker's pure tier/size model, but still token-plutocratic
+
+## Refund & Participant Protection
+
+> [!analysis] No native refund mechanism — IDO purchases are final once executed
+
+- **Refund window:** No. Once a participant successfully purchases tokens in a Polkastarter IDO, the transaction is final. There is no grace period or cooling-off window for refunds.
+- **Minimum raise threshold (soft cap):** No evidence of soft cap / minimum raise mechanics. IDOs have a hard cap (maximum) but no documented minimum threshold that would trigger automatic refunds if unmet.
+- **Post-launch performance refund:** No. Polkastarter does not offer DYCO-style performance-based refunds. Token performance post-launch is entirely market-driven.
+- **Cancellation rights:** Pre-sale only. Participants who are allowlisted but have not yet completed their purchase can choose not to participate. Once the swap transaction is executed on-chain, it is irreversible.
+
+> [!analysis] Polkastarter's participant protection model relies on *access gating* (POLS staking + lottery) rather than post-purchase refund rights. The theory is that requiring 7-day staking commitment and lottery selection filters for committed participants, reducing the need for refund mechanisms. However, this provides no protection against post-launch token underperformance.
 
 ## Open Questions
 - Is the POLS allowlist contract open source and audited?

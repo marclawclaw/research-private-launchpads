@@ -16,6 +16,7 @@
 | [Polkastarter](./Polkastarter.md) | competitor | POLS-staking lottery-based IDO access; 7-day hold requirement; per-project KYC |
 | [Token Sale Permissioning Mechanisms](./Token%20Sale%20Permissioning%20Mechanisms.md) | concept | Comparative overview of allowlist, stake-gate, KYC, and ZK-proof mechanisms |
 | [Strong Holder Offering (SHO)](./Strong%20Holder%20Offering%20(SHO).md) | concept | DAO Maker's proprietary staking-based guaranteed allocation model |
+| [Refund Mechanisms Comparison](./Refund%20Mechanisms%20Comparison.md) | analysis | Cross-protocol comparison of refund windows, grace periods, soft caps, and participant protection |
 
 ---
 
@@ -26,6 +27,7 @@
 3. **KYC centralisation is the main tension** — DAO Maker centralises it (UX win), Polkastarter delegates it (decentralisation win)
 4. **Opportunity gap**: Privacy-preserving permissioned launchpad (ZK-proof KYC + Logos stack) doesn't exist yet
 5. **LBP bot deterrence** is elegant but doesn't prevent Sybil attacks at the participation level
+6. **Refund mechanisms are rare in crypto-native platforms** — only DAO Maker DYCO offers genuine post-purchase performance-based refunds; Reg CF mandates cancellation rights; most platforms treat purchases as final (see [[Refund Mechanisms Comparison]])
 
 ---
 

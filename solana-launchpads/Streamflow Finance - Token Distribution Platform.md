@@ -3,7 +3,7 @@ topic: Solana Token Launchpads & Permissioned Sales
 type: competitor
 tags: [solana, vesting, distribution, streamflow, airdrop, staking]
 confidence: high
-last_updated: 2026-03-27
+last_updated: 2026-04-02
 sources:
   - https://streamflow.finance/
   - https://streamflow.finance/blog/token-vesting-the-definitive-guide
@@ -39,6 +39,17 @@ Streamflow is the dominant Solana token distribution platform with $1.4B+ TVL, 2
 - Streamflow's SDK could be the vesting/distribution layer for a Logos token sale — integrate for post-sale token release schedules
 - White-label portals demonstrate the pattern of "bring your own brand" distribution infra — a Logos-native equivalent could layer privacy (Waku notifications, Codex storage) on top
 - Streamflow's composable model (vesting + airdrop + staking as separate primitives) aligns with Logos' modular stack philosophy
+
+## Refund & Participant Protection
+
+> [!fact] Cancellation mechanics confirmed from Streamflow documentation
+
+- **Refund window:** Not applicable — Streamflow is post-sale distribution infrastructure, not a sale platform.
+- **Minimum raise threshold (soft cap):** Not applicable.
+- **Post-launch performance refund:** Not applicable.
+- **Cancellation rights:** Yes — configurable at contract creation. On cancellation: vested tokens go to recipient, unvested tokens return to sender. This is an issuer/sender-initiated clawback, not an investor refund right.
+
+> [!analysis] Streamflow provides issuer-side revocability (cancellation of vesting), which is useful for team member departures or compliance clawbacks. It does not provide participant-initiated refund capabilities. A launchpad using Streamflow for post-sale vesting would need to layer refund logic separately.
 
 ## Open Questions
 - Does Streamflow support permissioned claims (i.e., KYC-gated airdrops or vesting that requires credential verification)?

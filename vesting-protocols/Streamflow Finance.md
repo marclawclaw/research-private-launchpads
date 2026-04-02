@@ -3,7 +3,7 @@ topic: Token Vesting & Distribution Protocols
 type: competitor
 tags: [vesting, streaming, Solana, distribution, airdrops, payroll]
 confidence: high
-last_updated: 2026-03-27
+last_updated: 2026-04-02
 sources: [https://streamflow.finance/vesting, https://streamflow.finance/blog/token-vesting-the-definitive-guide]
 ---
 
@@ -38,6 +38,17 @@ Streamflow is a Solana-native token distribution platform offering vesting, aird
 - If Logos runs on or bridges to Solana, Streamflow is a direct integration candidate
 - The SDK-first approach is a good pattern: launchpad builders can embed vesting without building it themselves
 - Streamflow's "token dashboard" product (track all distributed tokens) is a useful reference for investor/team UX
+
+## Refund & Participant Protection
+
+> [!fact] Cancellation mechanics confirmed from Streamflow documentation (docs.streamflow.finance)
+
+- **Refund window:** Not applicable — Streamflow is a vesting/distribution platform, not a token sale platform. There is no "purchase" to refund.
+- **Minimum raise threshold (soft cap):** Not applicable — Streamflow does not conduct token sales.
+- **Post-launch performance refund:** Not applicable.
+- **Cancellation rights:** Yes — **vesting contract cancellation is a configurable feature.** When creating a vesting contract, the sender can set cancellation rules. If cancelled: all unlocked (vested) tokens are transferred to the recipient, and all remaining locked tokens are returned to the sender. This is an issuer-side control, not an investor-initiated refund right.
+
+> [!analysis] Streamflow's cancellation feature is a *clawback* mechanism for issuers (e.g., if a team member leaves), not a refund mechanism for investors. Investors/recipients cannot unilaterally cancel a vesting contract and reclaim their original payment — they only receive what has already vested. This is fundamentally different from DAO Maker's DYCO refund model.
 
 ## Open Questions
 - Does Streamflow support EVM chains or is it Solana-only?
