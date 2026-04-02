@@ -54,6 +54,8 @@ Pump.fun is the dominant permissionless memecoin launchpad on Solana, using bond
 | Q1 2026 | $195.0M |
 | Current | $193.0M |
 
+> [!analysis] **Metrics note:** Pump.fun's **launch platform** (bonding curves) is a transactional protocol — funds flow through briefly during token creation/graduation. The correct metrics for the launch side are cumulative volume, revenue, and number of tokens launched (not TVL). The **Pumpswap DEX** TVL reported above (~$193M) is valid because it represents persistent AMM liquidity where capital stays locked in trading pools. These two products should be evaluated with different metrics. See [[Launchpad Metrics Framework]].
+
 > [!fact] Mechanism details
 > - Bonding curve model: token price increases algorithmically as supply is purchased
 > - Graduation threshold: once bonding curve fills, token migrates to Pumpswap DEX (previously Raydium)

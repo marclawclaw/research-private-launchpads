@@ -52,6 +52,24 @@ Metaplex Genesis is a Solana-native smart contract framework for Token Generatio
 
 > [!analysis] Metaplex 2024→2025 growth was ~27% YoY ($19.1M→$24.3M), slower than the ~6x jump from 2023→2024. Q1 2026 shows a steep decline ($1.04M vs $8.25M in Q1 2025) — 87% drop YoY, likely reflecting the broader Solana memecoin cooldown. Genesis itself is still a small fraction of total revenue — most comes from Token Metadata fees charged to platforms like Pump.fun. The key insight: Metaplex earns from every token on Solana regardless of which launchpad is used, making it infrastructure-layer rather than application-layer revenue.
 
+### Volume & Growth Metrics (Genesis Product)
+
+> [!analysis] Genesis-specific revenue is isolated from Metaplex's broader protocol fees (which include Token Metadata fees from Pump.fun, Raydium, etc.). Funds raised figures below are **derived estimates** based on the 2% protocol fee on deposits: Revenue / 0.02 = Implied Funds Raised. Actual figures may differ due to refunds, partial fills, and fee-exempt transactions.
+
+Genesis launched in **July 2025** (alpha) — no 2024 data exists for this product.
+
+| Month | Est. Genesis Revenue | Implied Funds Raised | Source |
+|-------|---------------------|---------------------|--------|
+| Jul 2025 | ~$124K | ~$6.2M | DefiLlama (Metaplex breakdown) |
+| Aug 2025 | ~$387K | ~$19.4M | DefiLlama; noted as $422K/month in quarterly data |
+| Oct 2025 | ~$370K | ~$18.5M | DefiLlama |
+
+- **Cumulative Genesis revenue (Jul–Nov 2025):** >$1.1M, implying **~$55–70M total funds raised** through the alpha period
+- **Notable individual launches:** PlaySolana ($2.6M raised), GOATED ($800K), Beamable ($1.3M)
+- **Alpha launches paused December 2025** for Genesis SDK rollout (enabling third-party integrations)
+
+> [!analysis] TVL is **not an appropriate metric** for Genesis. Deposits exist only for the duration of a launch's deposit window (1 hour for memecoins, ~48 hours for projects) — there is no persistent locked value. The correct metrics are cumulative funds raised, number of launches, and protocol revenue. See [[Launchpad Metrics Framework]] for the full rationale.
+
 ### Mechanism
 - Smart contract program: `GNS1S5J5AspKXgpjz6SvKL66kPaKWAhaGRhCqPRxii2B` (mainnet + devnet)
 - Three launch mechanisms: Launch Pool (proportional/fair), Presale (fixed price FCFS), Uniform Price Auction (bid-based)

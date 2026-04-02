@@ -25,14 +25,15 @@
 
 1. **No dominant private/KYC-gated launchpad on Solana** — gap exists for institutional-grade permissioned sales
 2. **Merkle proof whitelist** is the standard on-chain permissioning primitive (cheap, scalable, off-chain list trust)
-3. **Streamflow** is the go-to for vesting/distribution post-sale — mature, audited, widely adopted
+3. **Streamflow** is the go-to for vesting/distribution post-sale — mature, audited, widely adopted ($1.4B TVL is valid here since vesting contracts hold capital persistently)
 4. **Solana ecosystem has bifurcated:** permissionless memecoins (Pump.fun) vs structured IDOs — no hybrid with privacy
 5. Token-2022 confidential transfers + transfer hooks (covered in separate topic) would enable truly private permissioned sales
 6. **Metaplex Genesis has the lowest fees** of any full-featured launchpad: 2% on deposits, zero setup costs, near-zero Solana gas. See [[../ethereum-launchpads/Fee Structure Comparison]]
 7. **Metaplex Genesis is the most immutable launchpad studied** — no documented pause, no admin override, parameters locked at creation. This is the most trustless model but sacrifices all emergency intervention capability. See [[../ethereum-launchpads/Sale Lifecycle Comparison]]
-7. **Metaplex Genesis has the most trustless close mechanics** — deposit windows are immutable on-chain; no documented pause/halt. No admin override. Compare with Ethereum launchpads in [[../ethereum-launchpads/Sale Lifecycle Comparison]]
+8. **TVL is not the right metric for launch platforms** — launchpads are transactional (funds flow through briefly), not capital-locking. Use cumulative funds raised, protocol revenue, and number of launches instead. TVL only applies to vesting/staking/DEX protocols like Streamflow and Pumpswap. See [[Launchpad Metrics Framework]]
 
 ## Related Topics
+- [[Launchpad Metrics Framework]] — Why TVL doesn't apply to launch platforms; correct metrics for comparison
 - [[Solana Token-2022 Extensions]] (Topic 3) — confidential transfers, transfer hooks for deeper permissioning
 - [[Token Vesting & Distribution Protocols]] (Topic 6) — cross-chain vesting comparison
 - [[KYC-Gated Token Sales]] (Topic 5) — compliance layer for accredited investor sales
