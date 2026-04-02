@@ -74,6 +74,28 @@ See also: [[Regulation CF]], [[Regulation D]], [[On-Chain KYC Providers]]
 
 > [!analysis] Republic's 6%+2% fee structure is the industry standard for regulated crowdfunding portals (Wefunder charges 7.5%, StartEngine charges 7-12%). The 2% securities component means Republic has equity/token upside in every deal — an alignment incentive. Zero investor fees and low setup costs ($0-3.5k) make it accessible for early-stage projects, but the 6% success fee is significant for larger raises. At $5M (Reg CF max), Republic would earn $300k in cash fees plus 2% of securities.
 
+## Sale Lifecycle & Close Mechanics
+
+> [!fact] Confirmed from Republic help center, SEC Regulation Crowdfunding rules (17 CFR §227.304), and Crowdwise analysis
+
+- **Manual close (issuer):** Yes — with regulatory constraints:
+  - **Reg CF:** Issuer can close the offering early **after reaching the target amount**, but must provide at least **5 business days' notice** of the new deadline. Investors must be notified and given the opportunity to reconfirm or cancel commitments. Cannot close before reaching target.
+  - **Reg D:** Issuer can close at any time at their discretion (no minimum raise requirement unless self-imposed). Rolling closes are permitted — issuer can accept funds in tranches.
+  - **Reg A+:** Issuer can close at any time, subject to SEC reporting requirements.
+- **Automatic close triggers:** (1) **Target amount reached** (Reg CF — mandatory minimum/target; reaching it enables early close with notice). (2) **Maximum raise cap** (Reg CF: $5M, Reg A+: $75M). (3) **Offering deadline** as filed in Form C (Reg CF) or offering statement (Reg A+). (4) **Target not met by deadline** — if the Reg CF target is not reached, all commitments are automatically cancelled and funds returned (mandatory soft cap).
+- **Emergency halt/pause:** Yes — Republic as a FINRA-registered intermediary has the authority and obligation to halt an offering if:
+  - Material misrepresentation or fraud is discovered
+  - Regulatory action (SEC stop order, FINRA intervention)
+  - "Bad actor" disqualification triggered
+  - Material change in offering terms (requires investor reconfirmation)
+  - Republic can also voluntarily remove an offering from the platform
+- **Admin override:** Yes — Republic has full platform control. As the registered intermediary, Republic is legally responsible for the offering and can halt, cancel, or modify offerings. The SEC can also force-close offerings via stop orders.
+- **Resume after pause:** Depends on the cause. Material changes require investor reconfirmation (existing commitments are voided unless reconfirmed within 5 business days). Regulatory halts require resolution with the relevant authority. Platform-level pauses can be reversed at Republic's discretion.
+- **Post-close behavior:** Off-chain settlement. Republic manages the entire post-close process: (1) funds are held in escrow during the offering, (2) upon successful close, funds are released to the issuer (minus Republic's 6% + 2% fee), (3) securities/tokens are issued to investors per the offering terms (Token DPA for crypto raises), (4) if target not met (Reg CF): automatic refund of all committed funds, (5) 1-year resale restriction on Reg CF securities. Investor receives 48-hour cancellation right up to deadline.
+- **Enforcement:** Off-chain (platform + regulatory). Republic manages the entire offering lifecycle through its platform. There are no on-chain smart contracts governing the sale close — everything is managed at the legal/platform layer. Token distribution (when applicable) happens post-close as a separate step.
+
+> [!analysis] Republic's close mechanics are the most investor-protective of any platform studied, driven entirely by SEC regulations. The mandatory soft cap (target must be met or all funds returned), 48-hour cancellation right, material change reconfirmation, and intermediary oversight create multiple safety nets. However, everything is off-chain and centralized — Republic is a mandatory intermediary with full control. This is the polar opposite of permissionless on-chain models like LBPs.
+
 ## Open Questions
 - Can a ZK-proof accredited investor attestation satisfy SEC's "reasonable steps" requirement under Rule 506(c)?
 - Is it possible to run a Reg CF raise with a decentralised funding portal (smart contract as intermediary)?

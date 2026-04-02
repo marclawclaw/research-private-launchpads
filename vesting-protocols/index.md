@@ -22,6 +22,8 @@ Research on token vesting mechanisms, streaming protocols, and distribution tool
 - **Multi-chain** deployment with consistent addresses is an emerging standard (LlamaPay pattern)
 - **NFT-based stream ownership** (Sablier) enables secondary market for vesting positions
 - **Fee models range from free to flat-fee**: Hedgey and Sablier are completely free (gas only); Streamflow charges flat SOL fees per contract (~$20). See [[../ethereum-launchpads/Fee Structure Comparison]]
+- **Cancellation models diverge**: Sablier offers both reversible pause (Flow) and permanent cancel (Lockup); Streamflow and Hedgey offer permanent cancellation only with no pause. All split funds between vested (→ recipient) and unvested (→ sender). See [[../ethereum-launchpads/Sale Lifecycle Comparison]]
+- **Cancel/revoke mechanics differ by design intent**: Sablier (zero admin keys, optional cancelability), Streamflow (configurable cancel rights at creation), Hedgey (Vesting Admin revoke for employees; non-revocable Lockup for investors). See [[../ethereum-launchpads/Sale Lifecycle Comparison]]
 
 ## Relevance to Logos Launchpad
 - A Logos launchpad needs at minimum: cliff + linear vesting + revocability

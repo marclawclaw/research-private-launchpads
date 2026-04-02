@@ -90,6 +90,20 @@ See also: [[Token Sale Permissioning Mechanisms]], [[Off-Chain Whitelist Pattern
 
 > [!analysis] Polkastarter's fee model is less transparent than Fjord Foundry or DAO Maker. The ~1% pool creation fee is the lowest platform fee of the major launchpads, but the real cost is the staking requirement — projects need to attract POLS stakers, and participants need $300-25,000+ in POLS to participate. The staking cost functions as an implicit fee/barrier.
 
+## Sale Lifecycle & Close Mechanics
+
+> [!analysis] Polkastarter does not publish comprehensive smart contract documentation; lifecycle inferred from participation guides, blog posts, and platform behavior
+
+- **Manual close (issuer):** No evidence of issuer-initiated early close. IDO pools are configured with fixed parameters (token amount, price, duration) and run until the hard cap is reached or time expires. The Polkastarter team manages the pool deployment — individual projects do not have direct smart contract control to end sales early.
+- **Automatic close triggers:** Two primary triggers: (1) **Hard cap reached** — pool is fully subscribed, no more swaps accepted. (2) **Time expiry** — the IDO window closes at the scheduled end time. IDOs are typically short (minutes to hours), with FCFS mechanics meaning they often sell out quickly. No documented soft cap / minimum raise threshold.
+- **Emergency halt/pause:** Not documented for individual IDOs. Polkastarter as the platform operator likely has the ability to pause or cancel pools, but this is not exposed to project teams or documented publicly. The smart contract swap pools are deployed by Polkastarter, suggesting the platform retains admin control.
+- **Admin override:** Likely yes — Polkastarter deploys and manages the IDO smart contracts. As the contract deployer/admin, the platform likely has privileged functions to pause or cancel pools. However, this is not publicly documented.
+- **Resume after pause:** Unknown — no documentation on pause/resume mechanics for IDO pools.
+- **Post-close behavior:** Automatic swap execution. Polkastarter IDOs use fixed-price swap pools — participants send payment tokens and receive project tokens in a single atomic transaction. There is no separate "claim" step; the swap is immediate on-chain. Post-IDO, tokens are in participants' wallets immediately (subject to any vesting schedule configured by the project, which is separate from the IDO itself).
+- **Enforcement:** On-chain (smart contract swap pools). The IDO itself is a set of smart contract interactions — swaps are executed atomically on-chain. However, the allowlist/lottery selection and KYC are off-chain, creating a hybrid model where access is off-chain but execution is on-chain.
+
+> [!analysis] Polkastarter's IDO model is transaction-based (atomic swaps) rather than pool-based (LBP) or allocation-based (SHO). This means there's no "open sale window" to pause — each participant's transaction either succeeds or fails independently. The FCFS nature means most IDOs sell out in minutes, making pause/close mechanics less relevant operationally. The lack of documented admin controls is a transparency gap.
+
 ## Open Questions
 - Is the POLS allowlist contract open source and audited?
 - What's Polkastarter's current traction in 2025/2026 — is it still active?

@@ -82,6 +82,31 @@ See also: [[Token Sale Permissioning Mechanisms]], [[Fjord Foundry]]
 
 > [!analysis] LBP costs are highly variable — the total cost to a project is swap fee configuration (their choice) + gas costs (network-dependent) + Balancer's protocol cut (50% of swap fees). Using Fjord Foundry adds a 5% flat fee on collateral but provides a no-code UI and marketing. Direct Balancer LBP deployment is cheaper but requires technical sophistication. On Ethereum mainnet, gas costs for the full LBP lifecycle (create pool → weight shifts → remove liquidity) can easily exceed $1,000, making L2 deployment increasingly attractive.
 
+## Sale Lifecycle & Close Mechanics
+
+> [!fact] Confirmed from Balancer v1/v2 docs, Configurable Rights Pool (CRP) source code, and Fjord Foundry LBP FAQ
+
+- **Manual close (issuer):** Yes — the pool controller (sale creator) has several tools:
+  - **Pause swaps:** `setSwapEnabled(false)` halts all trading on the pool. This is an optional right configured at pool creation via `canPauseSwapping` permission in the Configurable Rights Pool (CRP).
+  - **Remove liquidity:** The controller can call `removeToken` or remove liquidity to effectively end the sale by draining the pool. This can be done at any time.
+  - **Important:** The controller cannot alter weight schedules or pricing parameters mid-sale. Pause + resume is the only mid-sale intervention available.
+- **Automatic close triggers:** (1) **Weight schedule completion** — when the pre-committed weight shift reaches its end weights, the LBP is effectively over (though the pool technically remains open). (2) **Time-based** — the weight shift schedule is time-bound; once the end time is reached, weights stop shifting. (3) **No hardcap** at the protocol level (though Fjord adds optional hardcap on top). The pool doesn't automatically close — it just stops shifting weights, and the creator must manually remove liquidity.
+- **Emergency halt/pause:** Yes — if the pool was created with `canPauseSwapping: true`:
+  - Pool controller can pause swaps at any time, preventing all trading
+  - **Who can trigger:** Only the pool controller (the address that created the smart pool)
+  - Balancer protocol governance does not have per-pool pause capability in v1/v2
+  - Use case: "stronger than expected demand is driving up the price, and people are selling tokens back to the pool for profit" (from Balancer docs)
+- **Admin override:** Limited. The pool controller has full control over their pool. Balancer governance does not have documented per-pool override capability. In Balancer v3, the Vault has global pause capability, but this affects all pools, not individual ones.
+- **Resume after pause:** Yes — `setSwapEnabled(true)` resumes trading. Pausing is explicitly reversible. The weight shift schedule continues to advance even while swaps are paused (weights are time-based, not trade-based).
+- **Post-close behavior:** Manual — the pool controller must:
+  1. Remove remaining project tokens from the pool
+  2. Withdraw raised collateral (minus swap fees retained by the pool and Balancer protocol fee)
+  3. Distribute tokens to participants (if using Fjord, this is handled by the platform's claim mechanism)
+  - **Important caveat from Balancer docs:** If the project token contract is paused after the sale (preventing transfers), anyone who provided liquidity to other pools with that token will have their funds permanently locked.
+- **Enforcement:** On-chain (smart contract). The LBP is a Balancer smart pool — all operations (pause, resume, weight shifts, swaps, liquidity removal) are smart contract transactions. The `canPauseSwapping` right is set immutably at pool creation. Weight schedules are committed on-chain via `updateWeightsGradually` and advance automatically via the public `pokeWeights` function.
+
+> [!analysis] The Balancer LBP is the most transparent close mechanism of any platform studied — all controls are on-chain, the pause permission is set immutably at creation (so participants can verify before buying), and weight schedules are deterministic. The key design insight is that pausing swaps is a "circuit breaker" — it halts trading but doesn't alter the pricing algorithm. When resumed, the price curve continues as if uninterrupted. This is a well-designed emergency mechanism that prevents manipulation while allowing legitimate safety interventions.
+
 ## Open Questions
 - Can LBPs be combined with ZK-proof identity gating (e.g., prove KYC without revealing address)?
 - How does Fjord's "zero liquidity LBP" work at the smart contract level vs. classic Balancer LBP?

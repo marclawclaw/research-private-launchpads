@@ -74,6 +74,24 @@ See also: [[Off-Chain Whitelist Pattern (Merkle Proof)]], [[Solana Launchpad Eco
 
 > [!analysis] Metaplex Genesis has the lowest and most transparent fee structure of any full-featured launchpad — 2% on deposits with zero upfront costs. Compare this to Fjord's 5%, DAO Maker's 5%+, or Securitize's enterprise pricing. The fee is borne by participants (not issuers), making it the cheapest option for projects. Solana's near-zero gas costs amplify the advantage. The tradeoff is that Genesis is Solana-only and relatively new — less battle-tested than established Ethereum launchpads.
 
+## Sale Lifecycle & Close Mechanics
+
+> [!analysis] Metaplex Genesis documentation focuses on setup and participation flows; close/pause mechanics inferred from the bucket/time-condition architecture and developer docs
+
+- **Manual close (issuer):** Limited evidence. Genesis uses **time conditions** (deposit windows and claim windows) that are configured at launch creation. The deposit window defines when users can deposit SOL; once this window closes, no new deposits are accepted. There is no documented "early close" function that allows the issuer to end the deposit window before its scheduled end time. However, the **withdraw** function exists — participants can withdraw deposits during the deposit window (subject to 2% fee), and after launch completion, the creator withdraws raised funds.
+- **Automatic close triggers:** Time-based: (1) **Deposit window closes** — no more deposits accepted after the configured end time. (2) **Claim window opens** — participants can claim tokens after the configured start time. For memecoin launches, the deposit window is hardcoded to 1 hour. For project launches, deposit window duration is configurable (48h default). No documented hardcap trigger that closes the deposit window early (Launch Pool is proportional, so more deposits = higher implied price, no cap needed). Presale may have a cap based on available token supply.
+- **Emergency halt/pause:** Not documented. Genesis is a permissionless smart contract program — there's no documented pause function or emergency halt mechanism in the public-facing docs. The program authority (Metaplex Foundation) may have upgrade authority over the program, which could theoretically be used to halt operations, but this is not documented as a feature. Individual launches do not appear to have issuer-controlled pause functionality.
+- **Admin override:** Limited. Genesis is a Solana program (smart contract) — the program itself is controlled by Metaplex Foundation. Individual launches are controlled by the creator's wallet. There's no documented mechanism for the protocol to force-close or override individual launches. The recommendation to **revoke mint and freeze authorities** post-launch suggests the creator has these authorities initially and can choose to retain them.
+- **Resume after pause:** Not applicable — no documented pause mechanism.
+- **Post-close behavior:** Automated on-chain:
+  - **Launch Pool:** After deposit window closes, token price is discovered (total SOL / total tokens allocated). Participants claim tokens proportional to their deposit share during the claim window. Creator withdraws raised SOL.
+  - **Presale:** Tokens distributed immediately on deposit (FCFS). Creator claims raised SOL after deposit window closes.
+  - **Memecoin launches:** 50% of tokens go to depositors (proportional), 98% of raised SOL goes to Raydium LP (permanently locked), 1% to creator (unlocked).
+  - Post-launch: creators are recommended to revoke mint and freeze authorities for trust.
+- **Enforcement:** On-chain (Solana smart contract). All deposit windows, claim windows, and distribution mechanics are enforced by the Genesis program on-chain. Time conditions are immutable once the launch is created. The 2% protocol fee is enforced automatically.
+
+> [!analysis] Metaplex Genesis takes a "set and forget" approach — launch parameters (including timing) are configured at creation and enforced immutably on-chain. This is the most trustless model among the platforms studied: no party (including the creator or Metaplex) can alter the launch parameters after creation. The tradeoff is inflexibility — if something goes wrong (e.g., a vulnerability is discovered mid-launch), there's no emergency brake. The recommendation to revoke authorities post-launch further emphasizes the protocol's trust-minimization philosophy.
+
 ## Open Questions
 - How does Genesis's KYC gating work technically — Merkle proof, on-chain oracle, or platform-mediated?
 - Is the allowlist stored on-chain (account data) or verified via Merkle proofs?

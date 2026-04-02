@@ -55,6 +55,34 @@ Sablier is the leading token streaming and vesting protocol, live since 2019. It
 
 > [!analysis] Sablier is the only completely free protocol in this comparison — zero fees at every level. This is a deliberate strategy to maximise adoption and build network effects before potentially activating fees later (similar to Uniswap's fee switch). For projects choosing between vesting solutions, Sablier's zero-fee model is unbeatable on cost — the only expense is gas. However, EVM gas costs on Ethereum mainnet can be significant for large-scale distributions, making Streamflow (Solana-native) or Sablier-on-L2s more cost-effective for high-volume use cases.
 
+## Sale Lifecycle & Close Mechanics
+
+> [!fact] Confirmed from Sablier official docs (docs.sablier.com/concepts/cancelability, docs.sablier.com/concepts/flow/overview) and GitHub repo
+
+- **Manual close (issuer):** Yes — **cancelability is a first-class feature, set at stream creation**:
+  - **Lockup streams (cancelable):** The stream creator can cancel at any time. Unstreamed (unvested) funds are returned to the creator; already-streamed tokens remain claimable by the recipient. Cancellation is immediate and irrevocable.
+  - **Lockup streams (non-cancelable):** Cannot be cancelled by anyone — the recipient is guaranteed to receive all funds. Making a cancelable stream non-cancelable is a one-way operation (irreversible). A non-cancelable stream cannot be made cancelable again.
+  - **Recipients cannot cancel** — only the stream creator holds cancel rights on Lockup streams.
+  - **Flow streams:** Do not have a "cancel" function per se; they have pause, restart, and void operations instead.
+- **Automatic close triggers:** (1) **Stream end time reached** — Lockup streams have a fixed end time after which all tokens are fully vested and claimable. (2) **All tokens withdrawn** — once the recipient withdraws all streamed tokens, the stream is functionally complete. No documented hardcap or external trigger.
+- **Emergency halt/pause:**
+  - **Lockup streams:** No pause mechanism — only cancel (permanent) or the creator can stop funding. Once deployed, a cancelable stream can be cancelled instantly.
+  - **Flow streams:** Full pause/restart cycle supported. The sender can pause a Flow stream at any time; previously accrued debt is preserved. The sender can restart a paused stream. **Void** is the permanent termination — either party can void a Flow stream, making it non-restartable. Voiding an insolvent stream forfeits uncovered debt.
+  - **Merkle airdrops:** Creator can recover unclaimed funds (a) before any claims, (b) up to 7 days after first claim, (c) after claim window ends (if configured). After the 7-day window and without a claim end date, unclaimed funds are permanently locked.
+- **Admin override:** None — Sablier is a fully permissionless protocol. There is no admin key, no multisig, no pause guardian. The protocol team (Sablier Labs) cannot intervene in individual streams. "No gatekeepers, pure DeFi."
+- **Resume after pause:** 
+  - **Flow streams:** Yes — paused streams can be restarted by the sender. Accrued debt is preserved through pause/restart cycles.
+  - **Lockup cancelled streams:** No — cancellation is permanent. A new stream must be created.
+  - **Voided Flow streams:** No — void is permanent and irreversible.
+- **Post-close behavior:**
+  - On cancellation of Lockup: unstreamed tokens returned to creator; streamed tokens remain in protocol for recipient to withdraw at will (no expiry on withdrawal rights).
+  - On stream end: all tokens are streamed; recipient can withdraw at their convenience (no expiry).
+  - On void of Flow: stream stops accruing; any debt owed to recipient that was covered remains withdrawable; uncovered insolvent debt is forfeited.
+  - NFT-based ownership: Lockup streams are ERC-721 NFTs owned by the recipient — the stream position can be transferred or sold on secondary markets.
+- **Enforcement:** On-chain (smart contract, 27 EVM chains + Solana). All cancelability, pause, restart, and void operations are smart contract functions. The cancelable/non-cancelable flag is immutable once set (except the one-way conversion from cancelable → non-cancelable). Multiple audits (Cantina, Codehawks, 5+ others) confirm the on-chain enforcement. Zero admin keys = zero platform-level override capability.
+
+> [!analysis] Sablier offers the most nuanced cancel/pause mechanics of any vesting protocol studied. The distinction between Lockup (cancel = immediate termination) and Flow (pause/restart/void) reflects two different use cases: Lockup is for structured vesting with defined endpoints; Flow is for ongoing streaming payments. The one-way cancelable → non-cancelable conversion is an elegant trust mechanism — projects can commit to non-revocable vesting as a credible signal to investors, but only by giving up the flexibility to clawback. The complete absence of admin keys is the key differentiator from Streamflow and Hedgey.
+
 ## Open Questions
 - Does Sablier have a permissioned/private mode where allocations are not publicly visible?
 - What are the fee structures — does Sablier take a protocol fee?

@@ -68,6 +68,25 @@ See also: [[On-Chain KYC Providers]], [[Token Sale Permissioning Mechanisms]], [
 
 > [!analysis] Securitize is by far the most expensive platform studied — enterprise pricing puts it out of reach for small projects. However, it's the only platform offering full regulatory compliance (SEC-registered transfer agent + broker-dealer), which justifies the premium for institutional issuers. The 1% secondary trading commission is high relative to traditional markets but enables 24/7 trading of otherwise illiquid securities. Not comparable to crypto-native launchpads — it serves a fundamentally different market (regulated securities).
 
+## Sale Lifecycle & Close Mechanics
+
+> [!fact] Confirmed from DSToken v4 GitHub repo (securitize-io/dstoken), DS Protocol architecture docs, and SEC regulatory framework
+
+- **Manual close (issuer):** Yes — the issuer (via the Transfer Agent role in DSToken v4) can effectively halt an offering by freezing the token. The Transfer Agent has the ability to **freeze/unfreeze the token**, preventing all transfers. Additionally, the issuer can stop accepting new investments through the Securitize Markets platform at any time. Under Reg D, issuers can close offerings at their discretion; under Reg CF, early close requires 5 days' notice after reaching target amount.
+- **Automatic close triggers:** Regulatory-driven: (1) **Maximum raise amount reached** (Reg CF: $5M cap, Reg A+: $75M cap, Reg D: no cap but per-offering limits may apply), (2) **Offering deadline** as filed with the SEC, (3) **Compliance failure** — if the Compliance Service detects a regulatory violation, transfers are automatically blocked at the smart contract level.
+- **Emergency halt/pause:** Yes — multiple layers:
+  - **Smart contract level:** Transfer Agent can freeze the entire token (DSToken v4), halting all transfers globally. Individual wallets can also be frozen.
+  - **Compliance Service level:** Can block all transfers by modifying compliance rules (e.g., setting all countries as restricted).
+  - **Platform level:** Securitize Markets (the ATS) can halt trading on the secondary market.
+  - **Regulatory level:** SEC can issue a stop order or trading suspension.
+  - **Who can trigger:** Transfer Agent (Securitize), Issuer (via Trust Service roles), Master admin, or SEC/regulatory authority.
+- **Admin override:** Yes — comprehensive. The Trust Service defines role-based access with Master, Issuer, Exchange, and Transfer Agent roles. The Transfer Agent (typically Securitize) has the broadest powers including freeze/unfreeze, compliance rule modification, and investor registry management. This is by design — as a registered transfer agent, Securitize is legally required to maintain control over the security.
+- **Resume after pause:** Yes — token freeze is reversible (unfreeze function exists). Compliance rule changes are also reversible. However, an SEC stop order would require regulatory resolution before resumption.
+- **Post-close behavior:** Varies by offering type. Primary issuance: tokens are distributed to verified investors via the platform (manual claim through Securitize portal). Secondary trading: continuous on Securitize Markets ATS, subject to transfer restrictions. Failed offerings under Reg CF: mandatory refund of all committed funds. Securities are subject to 1-year resale restrictions (Reg CF) or indefinite restrictions (Reg D 506(b)).
+- **Enforcement:** On-chain (smart contract — DS Protocol enforces transfer restrictions at the token level) + off-chain (platform — Securitize Markets manages offering lifecycle, KYC, and regulatory filings). The on-chain freeze capability is the strongest enforcement mechanism of any platform studied.
+
+> [!analysis] Securitize has the most comprehensive close/halt mechanics of any platform in this study, reflecting its regulated securities context. The ability to freeze tokens at the smart contract level (not just at the UI) is unique among the platforms surveyed. This level of control is legally required for a registered transfer agent but represents maximum centralization — a single entity can halt all token activity globally. For Logos, this demonstrates the tension between regulatory compliance and decentralization: privacy-preserving alternatives would need equivalent halt capabilities to satisfy regulators.
+
 ## Open Questions
 - Can DS Protocol's Compliance Service be replaced with a ZK-proof verifier while maintaining regulatory compliance?
 - How does hashed identity data in Registry Service interact with GDPR right-to-erasure?

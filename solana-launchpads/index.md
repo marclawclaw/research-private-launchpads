@@ -26,6 +26,8 @@
 4. **Solana ecosystem has bifurcated:** permissionless memecoins (Pump.fun) vs structured IDOs — no hybrid with privacy
 5. Token-2022 confidential transfers + transfer hooks (covered in separate topic) would enable truly private permissioned sales
 6. **Metaplex Genesis has the lowest fees** of any full-featured launchpad: 2% on deposits, zero setup costs, near-zero Solana gas. See [[../ethereum-launchpads/Fee Structure Comparison]]
+7. **Metaplex Genesis is the most immutable launchpad studied** — no documented pause, no admin override, parameters locked at creation. This is the most trustless model but sacrifices all emergency intervention capability. See [[../ethereum-launchpads/Sale Lifecycle Comparison]]
+7. **Metaplex Genesis has the most trustless close mechanics** — deposit windows are immutable on-chain; no documented pause/halt. No admin override. Compare with Ethereum launchpads in [[../ethereum-launchpads/Sale Lifecycle Comparison]]
 
 ## Related Topics
 - [[Solana Token-2022 Extensions]] (Topic 3) — confidential transfers, transfer hooks for deeper permissioning

@@ -72,6 +72,30 @@ See also: [[On-Chain KYC Providers]], [[Token Sale Permissioning Mechanisms]], [
 
 > [!analysis] TokenSoft's pricing is opaque and enterprise-oriented — likely in the $25k-$200k+ range for full-service compliance and distribution, based on industry norms for managed compliance platforms. Unlike Fjord or DAO Maker where pricing is transparent and percentage-based, TokenSoft's value proposition is reducing compliance risk and operational burden. Projects pay for the managed compliance team, not just the technology. This makes direct fee comparison difficult, but TokenSoft is clearly positioned for mid-to-large projects that need regulatory coverage rather than scrappy startups.
 
+## Sale Lifecycle & Close Mechanics
+
+> [!analysis] TokenSoft does not publish detailed sale lifecycle documentation; mechanics inferred from ERC-1404 standard, platform architecture, and enterprise compliance model
+
+- **Manual close (issuer):** Yes — TokenSoft operates as a managed compliance service. The issuer (via TokenSoft's compliance team) can halt token distribution at any time by:
+  - Removing addresses from the on-chain whitelist (blocking new claims)
+  - Modifying ERC-1404 transfer restrictions to block all transfers
+  - Pausing the distribution portal (platform-level)
+  - Under applicable securities regulations, issuers can close offerings per the terms of their exemption (Reg D, SAFT, etc.)
+- **Automatic close triggers:** (1) **All tokens distributed** — distribution/claim pool exhausted. (2) **Vesting schedule completion** — all tranches unlocked and claimed. (3) **Offering deadline** as specified in the offering documents. TokenSoft doesn't operate continuous sales — it manages structured distributions, so "close" typically means distribution completion.
+- **Emergency halt/pause:** Yes — comprehensive freeze capability:
+  - **On-chain:** ERC-1404 token contracts can restrict all transfers by modifying the whitelist or compliance rules. The contract admin can effectively freeze the token by clearing the whitelist or adding all addresses to a denylist.
+  - **Platform-level:** TokenSoft's compliance team can halt the distribution portal, stopping all new claims.
+  - **Who can trigger:** TokenSoft compliance team (as managed service provider), issuer (via TokenSoft), or regulatory authority.
+- **Admin override:** Yes — TokenSoft holds admin keys for the ERC-1404 contracts it deploys. The contract admin role controls the whitelist, meaning TokenSoft can add/remove any address from the whitelist, effectively controlling all token transfers. This is a feature of the managed compliance model — the compliance team retains control.
+- **Resume after pause:** Yes — whitelist modifications and transfer restriction changes are reversible. Addresses can be re-added to the whitelist, and compliance rules can be reverted. Platform distribution can also be restarted.
+- **Post-close behavior:** Varies by offering:
+  - **SAFT distributions:** Tokens distributed per vesting schedule, claimed through TokenSoft portal. Continuous transfer restrictions remain active post-distribution.
+  - **Airdrops:** Batch distribution to verified addresses. Unclaimed tokens remain in the distribution contract.
+  - **Ongoing compliance:** Unlike most platforms, TokenSoft's transfer restrictions are **permanent** (not just during the sale) — tokens can only ever be transferred between whitelisted addresses. This is a continuous compliance model, not a point-in-time sale.
+- **Enforcement:** On-chain (ERC-1404 smart contract transfer restrictions) + off-chain (managed compliance service, portal access control). The on-chain enforcement is continuous — every token transfer is checked against the whitelist, making TokenSoft's enforcement the most persistent of the non-regulated platforms.
+
+> [!analysis] TokenSoft's lifecycle model is distinct from launchpads — it's a distribution/compliance platform rather than a fundraising platform. The concept of "closing a sale" is less relevant; instead, TokenSoft manages ongoing token lifecycle with permanent transfer restrictions. The admin key control over ERC-1404 whitelists gives TokenSoft (and by extension, the issuer) complete power to freeze or restrict token transfers at any time, indefinitely. This is operationally similar to Securitize's DS Protocol but without the formal transfer agent registration.
+
 ## Open Questions
 - Is TokenSoft's whitelist enforcement truly on-chain (Merkle proof or mapping) or does it rely on a centralised contract admin?
 - Can ERC-1404 restrictions be combined with ZK proofs for privacy-preserving transfer compliance?

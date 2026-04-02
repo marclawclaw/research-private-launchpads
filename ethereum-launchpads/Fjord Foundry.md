@@ -77,6 +77,23 @@ See also: [[Token Sale Permissioning Mechanisms]], [[Liquidity Bootstrapping Poo
 
 > [!analysis] Fjord's 5% fee on collateral raised is competitive and transparent — comparable to DAO Maker's 5% but without the additional participant-side fees (DAO Maker charges 5-30% on the buyer side). The zero-barrier-to-entry for both projects and participants makes Fjord one of the lowest-friction launchpads. However, since fees are only collected on successful raises, Fjord's revenue is highly dependent on market activity and launch volume.
 
+## Sale Lifecycle & Close Mechanics
+
+> [!fact] Confirmed from Fjord Foundry official docs (LBP FAQ, Fixed Price Sale FAQ, Tiered Sale creation guide)
+
+- **Manual close (issuer):** Partial.
+  - **LBPs:** Cannot be cancelled once started. The creator can **pause swaps** (temporarily halt trading) but cannot end the LBP early or withdraw funds before the scheduled end time. Token weights and pricing parameters cannot be altered mid-sale.
+  - **Fixed Price Sales:** Can be cancelled at any time **before** the sale begins. Once started, cannot be cancelled — but trading can be paused and the sale hidden from public view.
+  - **Tiered Sales:** Creator has rights to Pause, Unpause, or Cancel the sale before it starts.
+- **Automatic close triggers:** Time-based expiry is the primary close trigger. LBPs run for a configured duration (typically 2–5 days) and end automatically. Optional hard cap can be set on LBPs — once reached, no further purchases accepted. Fixed Price Sales close when all tokens are sold (raise limit reached) or time expires.
+- **Emergency halt/pause:** Yes — **creator can pause and resume swaps** on LBPs at any time during the sale. This temporarily stops new participation but does not end the sale. The sale can also be hidden from the public interface. This is a creator-only action; Fjord platform team may also have backend controls but this is not documented.
+- **Admin override:** Not documented. Fjord's FAQ does not mention platform-level force-close capabilities. Given that LBPs operate on Balancer smart contracts with the creator as pool controller, Fjord may have limited ability to intervene at the contract level. Platform-level actions (hiding sales, UI restrictions) are likely available.
+- **Resume after pause:** Yes — pausing swaps is explicitly reversible. The creator can pause and resume swaps during the LBP. This is a toggle, not a permanent halt.
+- **Post-close behavior:** Manual claim. After the LBP ends: (1) tokens can be claimed by participants, (2) collateral is sent to the creator's wallet minus the 5% Fjord fee, (3) optional claim delay can be configured to allow time for LP setup before participants receive tokens. Unsold tokens in Fixed Price Sales remain in the project's wallet.
+- **Enforcement:** Hybrid — LBP pause/resume is on-chain (Balancer smart pool `setSwapEnabled` function called by pool controller). Sale cancellation and visibility controls are platform-level (Fjord dashboard). Weight schedules are immutable once set on-chain.
+
+> [!analysis] Fjord provides meaningful creator control during sales (pause/resume swaps) without allowing parameter manipulation (weights are locked). This is a good balance — creators can respond to unusual market conditions (e.g., excessive bot activity) without being able to manipulate the price curve. The inability to cancel a live LBP is an important trust property: participants know the sale will complete on schedule.
+
 ## Open Questions
 - Does Fjord support on-chain KYC/identity proofs for whitelists, or only address-based allowlists?
 - What chains beyond Ethereum are live?

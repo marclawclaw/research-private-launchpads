@@ -98,6 +98,20 @@ See also: [[Token Sale Permissioning Mechanisms]], [[Strong Holder Offering (SHO
 
 > [!analysis] DAO Maker's fee model is aggressive compared to peers — the 30% Public SHO fee is the highest participant fee of any launchpad studied, though it functions as a conversion mechanism to drive $DAO purchases rather than a pure revenue extraction. The 5% platform fee on rounds is comparable to Fjord Foundry's 5% of collateral.
 
+## Sale Lifecycle & Close Mechanics
+
+> [!analysis] DAO Maker does not publish smart contract source code for SHO sales; lifecycle mechanics inferred from platform behavior, FAQ, and community guides
+
+- **Manual close (issuer):** No evidence of issuer-initiated early close. SHO sales are structured as lottery-based allocation events managed by the DAO Maker platform — the "sale" is effectively an allocation + claim process, not a continuous fundraise. Once winners are selected and allocations assigned, the process proceeds to claim. The platform controls the timeline.
+- **Automatic close triggers:** SHOs close based on the allocation window expiring (time-based). There is no continuous "hardcap" mechanism — allocations are pre-determined by DAO Power lottery. Winners must claim within the designated claim window or forfeit allocation. For DYCO sales, the 16-month refund window has its own automatic expiry.
+- **Emergency halt/pause:** Platform-controlled. DAO Maker manages all SHO operations centrally (off-chain allocation, on-chain claim). The platform can halt or delay a sale at its discretion. In 2021, DAO Maker experienced a $7M exploit — the platform paused operations during recovery. No on-chain pause mechanism documented for individual SHO contracts.
+- **Admin override:** Yes — DAO Maker has full platform-level control over all sales. As the centralized operator, the team can cancel, delay, or modify sale parameters. Projects do not have autonomous control over the smart contract.
+- **Resume after pause:** Yes — platform-level pauses are temporary operational decisions. The 2021 exploit recovery demonstrated the platform can resume after security incidents.
+- **Post-close behavior:** Manual claim. Winners must connect their wallet to the DAO Maker claim page and execute a claim transaction. Tokens are distributed according to the project's vesting schedule (varies per SHO — some immediate, some with cliff + linear vesting). Unclaimed allocations may be redistributed or forfeited. For DYCO: refundable for 16 months post-TGE, with burn-on-refund mechanics.
+- **Enforcement:** Hybrid — off-chain lottery/allocation (platform-managed), on-chain claim/distribution (smart contract). The sale lifecycle is primarily controlled at the platform level, with on-chain execution only at the claim stage.
+
+> [!analysis] DAO Maker's SHO model is fundamentally different from continuous sale models (LBP, IDO). The "sale" is a discrete allocation event, not a market — there's no price discovery or variable participation window. This makes concepts like "early close" or "pause" less applicable; the platform simply manages the allocation pipeline. The centralized control is a feature for compliance but a risk for decentralization.
+
 ## Open Questions
 - Is SHO smart contract open-source? What chain is the allocation contract deployed on?
 - ~~How does DYCO's refund mechanism work technically?~~ → **Resolved:** See Refund & Participant Protection section above

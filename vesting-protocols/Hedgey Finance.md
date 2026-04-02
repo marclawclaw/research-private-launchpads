@@ -43,6 +43,28 @@ Hedgey Finance is a free on-chain token infrastructure platform for vesting, inv
 - The investor dashboard UX is a good reference for recipient-facing tools
 - "Free" positioning creates adoption moats — relevant strategic consideration for any Logos vesting infrastructure
 
+## Sale Lifecycle & Close Mechanics
+
+> [!fact] Confirmed from Hedgey Finance GitHub (hedgey-finance/Locked_VestingTokenPlans README), app.hedgey.finance/vesting, and Filecoin devgrant description
+
+- **Manual close (issuer):** Yes — **Vesting Plans are revocable by the Vesting Admin**:
+  - Each Vesting Plan has a designated **Vesting Admin** (set at creation, typically the issuing project/team) who has the authority to revoke the plan at any time.
+  - On revocation: unvested tokens are returned to the Vesting Admin; vested tokens remain claimable by the beneficiary (recipient).
+  - **Lockup Plans** (for investors): non-revocable by default. However, Lockup Plans are transferable (the NFT can be sold/transferred), giving recipients flexibility without giving issuers clawback rights.
+- **Automatic close triggers:** (1) **Vesting schedule completion** — all tokens vest per the configured schedule (linear with optional cliff and periodic unlocks). (2) **All tokens redeemed** — when the beneficiary has claimed all vested tokens, the plan is functionally complete. No documented external triggers.
+- **Emergency halt/pause:** The revocation function serves as an emergency halt for Vesting Plans — the Vesting Admin can revoke at any time, including immediately. There is no separate "pause then resume" mechanism for vesting — revocation is the only admin intervention. The Vesting Admin role is the sole emergency control; there is no platform-level (Hedgey team) override for individual plans.
+- **Admin override:** Scoped to Vesting Admin role only. Hedgey Finance (the company) does not retain admin keys over deployed vesting contracts. The Vesting Admin is the project/issuer who created the plans. This is confirmed by the open-source contract architecture — no upgradeable proxy, no platform multisig in the vesting logic.
+  - **Note:** The April 2024 exploit ($44M in token approvals drained) was via the `cancelCampaign` function in the (separate, now-deprecated) ClaimCampaigns.sol contract — the exploit did NOT affect Vesting Plans or Lockup Plans.
+- **Resume after pause:** Not applicable — there is no pause mechanism. Revocation is permanent. After revocation, a new vesting plan must be created to resume vesting for a recipient.
+- **Post-close behavior:**
+  - On revocation: unvested tokens return to Vesting Admin; vested tokens remain available for beneficiary to claim (no expiry documented).
+  - On natural completion: beneficiary redeems all tokens per schedule; partial redemptions supported.
+  - NFT-based: each plan is an ERC-721 NFT owned by the beneficiary. Lockup Plan NFTs are transferable by default; Vesting Plan NFTs are also transferable (enabling OTC secondary market for vesting positions). Bound variants (non-transferable) available.
+  - Voting with locked tokens: plans support Snapshot and on-chain governance voting with unvested/unlocked tokens.
+- **Enforcement:** On-chain (EVM smart contracts). Revocation is a smart contract transaction executed by the Vesting Admin wallet. The vesting schedule (cliff, start date, period, unlock amount) is stored on-chain in the NFT state. No platform intermediary required for execution — direct smart contract interaction is possible. Audited (3 audits post-2024 exploit with no critical findings on core contracts).
+
+> [!analysis] Hedgey's revocation model closely mirrors Sablier's cancelable Lockup streams — the issuer can reclaim unvested tokens (e.g., employee departure) but cannot touch already-vested tokens. The key difference is that Hedgey explicitly separates Vesting Plans (revocable, for employees/contributors) from Lockup Plans (non-revocable, for investors), which is a useful design pattern. Lockup Plans being non-revocable but transferable is an elegant investor protection: investors can't be rug-pulled, but they can exit via secondary market (selling the NFT). The 2024 exploit's origin in a separate (now deprecated) campaign contract, not the core vesting logic, is an important nuance.
+
 ## Open Questions
 - How does Hedgey sustain operations long-term without protocol fees?
 - What is Hedgey's TVL (total tokens locked in vesting contracts)?
