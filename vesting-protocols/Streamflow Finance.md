@@ -50,6 +50,26 @@ Streamflow is a Solana-native token distribution platform offering vesting, aird
 
 > [!analysis] Streamflow's cancellation feature is a *clawback* mechanism for issuers (e.g., if a team member leaves), not a refund mechanism for investors. Investors/recipients cannot unilaterally cancel a vesting contract and reclaim their original payment — they only receive what has already vested. This is fundamentally different from DAO Maker's DYCO refund model.
 
+## Fee Structure
+
+> [!fact] Confirmed from Streamflow official docs (docs.streamflow.finance/costs-of-using-streamflow)
+
+- **Platform fee (issuer):** Flat SOL fees per action (not percentage-based):
+  - Vesting/Lock/Escrow creation: 0.16 SOL (~$20-25) per contract + 0.0147 SOL network fee
+  - Auto-Claim add-on: 0.25 SOL per contract
+  - Staking Pool creation: 1.30 SOL (~$160-200) per pool
+  - Custom Oracle Infrastructure: minimum 0.13 SOL + 0.000078 SOL per unlock
+- **Participant fee (buyer/recipient):**
+  - Airdrop claim: 0.009-0.017 SOL (~$1-2) per claim + network fees
+  - Airdrop clawback: 1.70% of total tokens returned + network fees
+- **Listing/setup fee:** None beyond the per-contract creation fees listed above
+- **Staking requirement:** STREAM token is stakeable for rewards but NOT required to use the platform
+- **Gas/proof costs:** Solana network fees (~0.0147 SOL per transaction). Minimal compared to EVM alternatives
+- **Sybil Checker:** 0.12 USDC per wallet address checked (via CSV upload)
+- **Revenue model:** (1) Flat per-contract creation fees, (2) airdrop claim fees, (3) clawback percentage fees (1.70%), (4) protocol fees allocated to STREAM token reward system, (5) custom enterprise pricing available
+
+> [!analysis] Streamflow's flat-fee model (SOL-denominated, not percentage-based) makes it extremely cheap for large token distributions. A project vesting tokens to 100 recipients pays ~16 SOL ($2,000-2,500) total in Streamflow fees — compared to thousands in EVM gas fees for equivalent Sablier operations. The 1.70% clawback fee is the only percentage-based charge. Streamflow is the most cost-effective vesting solution for Solana-native projects.
+
 ## Open Questions
 - Does Streamflow support EVM chains or is it Solana-only?
 - What's the fee structure? Fixed fee per stream or % of tokens?

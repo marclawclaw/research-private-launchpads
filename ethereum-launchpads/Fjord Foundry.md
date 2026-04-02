@@ -64,6 +64,19 @@ Fjord Foundry is an Ethereum-based token sale platform specialising in Liquidity
 
 See also: [[Token Sale Permissioning Mechanisms]], [[Liquidity Bootstrapping Pool (LBP)]]
 
+## Fee Structure
+
+> [!fact] Confirmed from Fjord Foundry docs, platform FAQ, and DefiLlama fee tracking
+
+- **Platform fee (issuer):** 5% of collateral raised — deducted from proceeds at the end of the LBP or fixed-price sale. No upfront cost to launch
+- **Participant fee (buyer):** None — no additional fee charged to buyers beyond the LBP swap price. Standard AMM swap fees may apply (configurable by sale creator, typically 1-2%, max 10%)
+- **Listing/setup fee:** None for permissionless (community upvote) sales. Curated/partnered sales may involve partnership agreements but no published upfront fee
+- **Staking requirement:** None — $FJO token is explicitly NOT required to participate in sales. Fjord's ethos rejects token-gating
+- **Gas/proof costs:** Standard Ethereum gas fees borne by participants for swap transactions. Multi-chain deployment reduces gas costs on L2s
+- **Revenue model:** Platform fee (5% of collateral) is the primary revenue source. $FJO token provides governance but not sale access. Fjord raised $15M+ via its own LBP in April 2024
+
+> [!analysis] Fjord's 5% fee on collateral raised is competitive and transparent — comparable to DAO Maker's 5% but without the additional participant-side fees (DAO Maker charges 5-30% on the buyer side). The zero-barrier-to-entry for both projects and participants makes Fjord one of the lowest-friction launchpads. However, since fees are only collected on successful raises, Fjord's revenue is highly dependent on market activity and launch volume.
+
 ## Open Questions
 - Does Fjord support on-chain KYC/identity proofs for whitelists, or only address-based allowlists?
 - What chains beyond Ethereum are live?

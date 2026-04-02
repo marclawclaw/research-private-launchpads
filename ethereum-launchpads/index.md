@@ -21,6 +21,7 @@
 | [Republic](./Republic.md) | competitor | FINRA-registered funding portal; Reg CF/D/A+ token raises; broadest regulatory coverage + retail access |
 | [TokenSoft](./TokenSoft.md) | competitor | Compliance-as-a-service token distribution; managed KYC/KYB; ERC-1404 on-chain transfer restrictions |
 | [Allowlist Mechanisms Comparison](./Allowlist%20Mechanisms%20Comparison.md) | analysis | Cross-protocol comparison of allowlist gating, enforcement, tiers, geo-blocking, and Sybil resistance |
+| [Fee Structure Comparison](./Fee%20Structure%20Comparison.md) | analysis | Cross-platform fee comparison matrix covering all launchpads, sale platforms, and vesting protocols |
 
 ---
 
@@ -34,6 +35,7 @@
 6. **Refund mechanisms are rare in crypto-native platforms** — only DAO Maker DYCO offers genuine post-purchase performance-based refunds; Reg CF mandates cancellation rights; most platforms treat purchases as final (see [[Refund Mechanisms Comparison]])
 7. **Access control ranges from fully open to fully regulated** — LBPs are permissionless; Securitize enforces compliance at every transfer; the privacy-preserving middle ground (ZK-proof gating) doesn't exist yet (see [[Allowlist Mechanisms Comparison]])
 8. **On-chain enforcement is rare** — only Securitize (DS Protocol) and Metaplex Genesis enforce access control at the smart contract level; most platforms rely on UI-level gating
+9. **Fee structures vary wildly** — from free (Hedgey, Sablier) to 2% (Metaplex Genesis) to 5% (Fjord, DAO Maker) to enterprise pricing ($50k-500k+ for Securitize/TokenSoft). DAO Maker's 30% Public SHO fee is the highest participant fee. See [[Fee Structure Comparison]]
 
 ---
 

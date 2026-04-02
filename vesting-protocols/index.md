@@ -13,6 +13,7 @@ Research on token vesting mechanisms, streaming protocols, and distribution tool
 | [[Team Finance]] | competitor | EVM vesting + LP token locks for early-stage projects. Branded embeddable vesting widget. Multi-chain (BSC, ETH, AVAX, Polygon) |
 | [[ERC20 Token Vesting Contracts (AbdelStark)]] | concept | Open-source reference implementation: cliff + linear vesting, revocable schedules, Hacken audit, Apache-2.0 |
 | [[Token Streaming vs Discrete Unlocks]] | concept | Design pattern comparison: streaming (per-second) vs discrete unlocks (cliff + periodic). Trade-offs in market impact, UX, complexity |
+| [[Hedgey Finance]] | competitor | 100% free on-chain vesting/lockup infrastructure. No protocol fees. EVM + Solana. Open-source contracts |
 
 ## Key Themes
 - **Streaming** (Sablier, LlamaPay, Streamflow) is replacing discrete unlocks as the dominant model
@@ -20,6 +21,7 @@ Research on token vesting mechanisms, streaming protocols, and distribution tool
 - **Gas efficiency** matters: LlamaPay's shared-contract model is 3–4x cheaper than per-stream deployments
 - **Multi-chain** deployment with consistent addresses is an emerging standard (LlamaPay pattern)
 - **NFT-based stream ownership** (Sablier) enables secondary market for vesting positions
+- **Fee models range from free to flat-fee**: Hedgey and Sablier are completely free (gas only); Streamflow charges flat SOL fees per contract (~$20). See [[../ethereum-launchpads/Fee Structure Comparison]]
 
 ## Relevance to Logos Launchpad
 - A Logos launchpad needs at minimum: cliff + linear vesting + revocability

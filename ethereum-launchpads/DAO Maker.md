@@ -84,6 +84,20 @@ DAO Maker is an Ethereum-based launchpad that emphasises long-term project incub
 
 See also: [[Token Sale Permissioning Mechanisms]], [[Strong Holder Offering (SHO)]]
 
+## Fee Structure
+
+> [!fact] Fee details confirmed from DAO Maker GitBook docs and support articles
+
+- **Platform fee (issuer):** 5% of tokens per round (deducted from token allocation when participants claim). Projects also provide token allocations for the SHO mechanism
+- **Participant fee (buyer — DAO SHO):** 5% of tokens deducted at claim for DAO stakers participating in standard SHOs
+- **Participant fee (buyer — Public SHO):** 30% fee on tokens for Public SHO winners. This fee can be waived by purchasing 2,000 $DAO tokens (upgrading to "DAO Premium"), creating a strong incentive to hold the native token
+- **Listing/setup fee:** Not publicly disclosed. Projects go through an application/incubation process; likely involves token allocation agreements and marketing commitments rather than upfront cash fees
+- **Staking requirement:** Minimum 2,000 DAO (~$28 at current prices) for new users; early adopters (staked 500+ before Sep 2021) have lower 250 DAO minimum. Higher tiers up to 100,000 DAO (~$1,400+) for maximum DAO Power
+- **Gas/proof costs:** Standard Ethereum gas fees borne by participants for claiming tokens. Platform-level operations (KYC, allocation) are off-chain
+- **Revenue model:** Multi-stream: (1) 5% platform fee on all rounds, (2) 30% fee on Public SHO tokens (unless users buy $DAO), (3) incubation/advisory equity or token allocations from launched projects, (4) staking rewards distribution to $DAO holders from Venture Yield (fee sharing), (5) $DAO token value appreciation
+
+> [!analysis] DAO Maker's fee model is aggressive compared to peers — the 30% Public SHO fee is the highest participant fee of any launchpad studied, though it functions as a conversion mechanism to drive $DAO purchases rather than a pure revenue extraction. The 5% platform fee on rounds is comparable to Fjord Foundry's 5% of collateral.
+
 ## Open Questions
 - Is SHO smart contract open-source? What chain is the allocation contract deployed on?
 - ~~How does DYCO's refund mechanism work technically?~~ → **Resolved:** See Refund & Participant Protection section above

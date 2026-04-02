@@ -61,6 +61,19 @@ See also: [[Off-Chain Whitelist Pattern (Merkle Proof)]], [[Solana Launchpad Eco
 - The Launch Pool mechanism (proportional distribution) aligns with fairness goals; could be enhanced with privacy (hide individual deposit amounts using ZK)
 - Bucket system modularity is a good architectural pattern for composable launch configurations
 
+## Fee Structure
+
+> [!fact] Confirmed from Metaplex developer docs and Genesis marketing site
+
+- **Platform fee (issuer):** 2% protocol fee on deposits — applied automatically by the smart contract on all SOL deposited into Launch Pools, Presales, and Uniform Price Auctions. No upfront cost to create a launch
+- **Participant fee (buyer):** The 2% fee is deducted from participant deposits (not from the project's token allocation). Participants effectively pay 2% more than the base token price
+- **Listing/setup fee:** None — no-code UI (genesis.playsolana.com) is free to use. TypeScript SDK for custom integrations is open-source
+- **Staking requirement:** None — no native token required for participation. Access control is configurable per-launch (open, allowlist, KYC-gated)
+- **Gas/proof costs:** Solana network fees (~$0.01-0.02 per transaction) — negligible compared to Ethereum. Borne by participants for deposits and claims
+- **Revenue model:** Protocol fee (2% on deposits) is the sole documented revenue source. Backed by Metaplex Foundation (which also earns from NFT minting fees across the broader Metaplex ecosystem)
+
+> [!analysis] Metaplex Genesis has the lowest and most transparent fee structure of any full-featured launchpad — 2% on deposits with zero upfront costs. Compare this to Fjord's 5%, DAO Maker's 5%+, or Securitize's enterprise pricing. The fee is borne by participants (not issuers), making it the cheapest option for projects. Solana's near-zero gas costs amplify the advantage. The tradeoff is that Genesis is Solana-only and relatively new — less battle-tested than established Ethereum launchpads.
+
 ## Open Questions
 - How does Genesis's KYC gating work technically — Merkle proof, on-chain oracle, or platform-mediated?
 - Is the allowlist stored on-chain (account data) or verified via Merkle proofs?

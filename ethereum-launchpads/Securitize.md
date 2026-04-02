@@ -54,6 +54,20 @@ See also: [[On-Chain KYC Providers]], [[Token Sale Permissioning Mechanisms]], [
 - The Transfer Agent role (v4) mirrors traditional securities infrastructure — useful reference for regulated Logos token launches
 - Converge chain shows the institutional demand for permissioned DeFi — Logos privacy stack could enable a privacy-preserving alternative
 
+## Fee Structure
+
+> [!fact] Securitize uses custom enterprise pricing — no public fee schedule. Key data points from Avalanche Builder Hub integration page and SEC filings
+
+- **Platform fee (issuer):** Custom enterprise pricing. Includes one-time setup fees for structuring and launching tokenized securities, plus ongoing fees. Not publicly disclosed — tailored to volume, investor count, and service scope
+- **Participant fee (buyer):** 1% trade commission on secondary market transactions via Securitize Markets ATS. Primary issuance fees are typically borne by the issuer, not investors
+- **Listing/setup fee:** One-time fees for structuring and launching tokenized securities (amount not disclosed — estimated $50k-$500k+ based on enterprise pricing norms for regulated issuance platforms)
+- **Ongoing fees:** Transfer agent fees for shareholder recordkeeping and corporate actions (monthly); fund administration fees for NAV calculation and investor reporting (monthly)
+- **Gas/proof costs:** Ethereum gas fees for DS Protocol smart contract interactions. Converge chain (upcoming) may reduce gas costs for institutional DeFi
+- **Staking requirement:** None — access is regulatory-based (accredited investor status), not token-based
+- **Revenue model:** Enterprise SaaS model: (1) one-time issuance setup fees, (2) ongoing transfer agent/administration fees, (3) ATS trading commissions (1% per trade), (4) compliance-as-a-service retainer fees, (5) equity/strategic investments (BlackRock strategic investment received). Securitize has ~$2B in tokenized securities on platform
+
+> [!analysis] Securitize is by far the most expensive platform studied — enterprise pricing puts it out of reach for small projects. However, it's the only platform offering full regulatory compliance (SEC-registered transfer agent + broker-dealer), which justifies the premium for institutional issuers. The 1% secondary trading commission is high relative to traditional markets but enables 24/7 trading of otherwise illiquid securities. Not comparable to crypto-native launchpads — it serves a fundamentally different market (regulated securities).
+
 ## Open Questions
 - Can DS Protocol's Compliance Service be replaced with a ZK-proof verifier while maintaining regulatory compliance?
 - How does hashed identity data in Registry Service interact with GDPR right-to-erasure?

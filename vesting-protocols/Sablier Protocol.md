@@ -41,6 +41,20 @@ Sablier is the leading token streaming and vesting protocol, live since 2019. It
 - Multi-chain deployment pattern (same contracts, different chains) is a template for Logos ecosystem expansion
 - `flow` (open-ended streaming) is interesting for continuous contributor payments in DAO contexts
 
+## Fee Structure
+
+> [!fact] Confirmed from Sablier official docs (docs.sablier.com/concepts/protocol/fees) and blog post "Why and How Sablier Is Still Free to Use" (Nov 2024)
+
+- **Platform fee (issuer):** Zero — "The Sablier Protocol is entirely free to use. There is no protocol fee." This is confirmed as of late 2024
+- **Participant fee (buyer/recipient):** Zero — no fees charged by Sablier for creating, claiming, or withdrawing from streams
+- **Broker fee (third-party integrators):** External front-end operators MAY charge a broker fee (0-10% of streamed amount) when users create streams through their interfaces. The official Sablier interface does NOT charge broker fees. This is an optional monetisation mechanism for third-party builders
+- **Listing/setup fee:** None
+- **Staking requirement:** None — Sablier has no native token. The protocol is fully permissionless
+- **Gas/proof costs:** Standard EVM gas fees for creating streams, withdrawing funds, and claiming airdrops. Gas costs vary significantly by chain (Ethereum mainnet = expensive; L2s like Arbitrum/Base = cheap). Merkle-based airdrops are gas-efficient for batch distribution
+- **Revenue model:** Sablier does not extract protocol-level fees. Revenue model is based on: (1) VC funding (a16z crypto, A Capital, etc.), (2) potential future protocol fee that can be enabled by governance, (3) broker fee system incentivises third-party integrations (ecosystem growth), (4) BSL 1.1 license protects commercial interests. Sablier is "free now" but has a governance-activatable fee switch
+
+> [!analysis] Sablier is the only completely free protocol in this comparison — zero fees at every level. This is a deliberate strategy to maximise adoption and build network effects before potentially activating fees later (similar to Uniswap's fee switch). For projects choosing between vesting solutions, Sablier's zero-fee model is unbeatable on cost — the only expense is gas. However, EVM gas costs on Ethereum mainnet can be significant for large-scale distributions, making Streamflow (Solana-native) or Sablier-on-L2s more cost-effective for high-volume use cases.
+
 ## Open Questions
 - Does Sablier have a permissioned/private mode where allocations are not publicly visible?
 - What are the fee structures — does Sablier take a protocol fee?

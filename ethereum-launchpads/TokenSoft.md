@@ -59,6 +59,19 @@ See also: [[On-Chain KYC Providers]], [[Token Sale Permissioning Mechanisms]], [
 - The API-based whitelisting model is a useful reference for how external verification can feed into on-chain access control
 - Compliance-as-a-service concept maps well to a potential Logos "privacy compliance oracle" — ZK attestation service that replaces manual KYC teams
 
+## Fee Structure
+
+> [!analysis] TokenSoft uses custom enterprise pricing — no public fee schedule. Inferred from platform positioning and industry norms
+
+- **Platform fee (issuer):** Custom pricing — not publicly disclosed. TokenSoft operates as a compliance-as-a-service provider with bespoke pricing based on project scope, number of recipients, chains supported, and compliance requirements. Foundation setup services also have variable pricing
+- **Participant fee (buyer):** None documented — costs are borne by the issuing project, not recipients/investors
+- **Listing/setup fee:** Custom — includes KYC/KYB setup, legal template preparation, smart contract deployment (ERC-1404), and compliance team onboarding. Foundation setup services (entity formation, governance, legal templates) priced separately. "Pricing may vary based on project need or situation"
+- **Staking requirement:** None — access is compliance-based (KYC/KYB/accreditation), not token-based
+- **Gas/proof costs:** EVM gas fees for token distribution, claims, and transfer restriction enforcement. Batch distribution supported to optimise gas costs for large recipient sets
+- **Revenue model:** Enterprise SaaS model: (1) project setup/onboarding fees, (2) ongoing compliance management retainer, (3) foundation setup and administration services (entity formation, legal, directorship, compliance reporting), (4) API integration fees for ATS partners, (5) per-distribution or per-event fees for ongoing token operations
+
+> [!analysis] TokenSoft's pricing is opaque and enterprise-oriented — likely in the $25k-$200k+ range for full-service compliance and distribution, based on industry norms for managed compliance platforms. Unlike Fjord or DAO Maker where pricing is transparent and percentage-based, TokenSoft's value proposition is reducing compliance risk and operational burden. Projects pay for the managed compliance team, not just the technology. This makes direct fee comparison difficult, but TokenSoft is clearly positioned for mid-to-large projects that need regulatory coverage rather than scrappy startups.
+
 ## Open Questions
 - Is TokenSoft's whitelist enforcement truly on-chain (Merkle proof or mapping) or does it rely on a centralised contract admin?
 - Can ERC-1404 restrictions be combined with ZK proofs for privacy-preserving transfer compliance?

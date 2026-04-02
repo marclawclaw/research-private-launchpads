@@ -25,6 +25,7 @@
 3. **Streamflow** is the go-to for vesting/distribution post-sale — mature, audited, widely adopted
 4. **Solana ecosystem has bifurcated:** permissionless memecoins (Pump.fun) vs structured IDOs — no hybrid with privacy
 5. Token-2022 confidential transfers + transfer hooks (covered in separate topic) would enable truly private permissioned sales
+6. **Metaplex Genesis has the lowest fees** of any full-featured launchpad: 2% on deposits, zero setup costs, near-zero Solana gas. See [[../ethereum-launchpads/Fee Structure Comparison]]
 
 ## Related Topics
 - [[Solana Token-2022 Extensions]] (Topic 3) — confidential transfers, transfer hooks for deeper permissioning

@@ -77,6 +77,19 @@ Polkastarter is a decentralised IDO launchpad (originally Polkadot-based, now mu
 
 See also: [[Token Sale Permissioning Mechanisms]], [[Off-Chain Whitelist Pattern (Merkle Proof)]]
 
+## Fee Structure
+
+> [!analysis] Fee details partially inferred — Polkastarter does not publish a comprehensive public fee schedule
+
+- **Platform fee (issuer):** Fixed fee paid by pool creators, reported as ~1% of raised amount (deducted from proceeds). Exact percentage may vary per deal and is not prominently documented
+- **Participant fee (buyer):** Transaction fees paid in $POLS. Standard network gas fees apply. No additional percentage fee charged to buyers
+- **Listing/setup fee:** Not publicly disclosed. Projects must apply and be accepted (curated platform). Likely involves token allocation agreements with Polkastarter team
+- **Staking requirement:** Minimum 1,000 POLS Power (raised from 250 in 2024) for lottery eligibility. At current prices (~$0.30-0.50/POLS), this is approximately $300-500 minimum. Top tier (50,000 POLS for guaranteed spots) costs ~$15,000-25,000
+- **Gas/proof costs:** Standard network gas fees borne by participants. Multi-chain support (Ethereum, BNB Chain) means gas costs vary by chain
+- **Revenue model:** (1) Pool creation fees from projects, (2) transaction fees paid in $POLS, (3) token allocations from launched projects, (4) fee-sharing with $POLS stakers (planned governance model), (5) $POLS token value from utility demand
+
+> [!analysis] Polkastarter's fee model is less transparent than Fjord Foundry or DAO Maker. The ~1% pool creation fee is the lowest platform fee of the major launchpads, but the real cost is the staking requirement — projects need to attract POLS stakers, and participants need $300-25,000+ in POLS to participate. The staking cost functions as an implicit fee/barrier.
+
 ## Open Questions
 - Is the POLS allowlist contract open source and audited?
 - What's Polkastarter's current traction in 2025/2026 — is it still active?

@@ -61,6 +61,19 @@ See also: [[Regulation CF]], [[Regulation D]], [[On-Chain KYC Providers]]
 - Republic's centralised model is the problem Logos could solve: ZK-proof accreditation + on-chain compliance could remove the intermediary requirement
 - Mirror Tokens concept (tokenized exposure to private shares) could be implemented with privacy using Logos stack
 
+## Fee Structure
+
+> [!fact] Confirmed from Republic official help page, Business.org review, OpenVC, and Scoutmine cost comparison
+
+- **Platform fee (issuer):** 6% of total amount raised in cash + 2% of securities offered (equity or tokens). Some sources cite 7% cash + 2% securities for certain offering types. This is a success fee — charged only on completed raises
+- **Participant fee (buyer):** None — Republic charges zero fees to investors. All costs are borne by the issuer
+- **Listing/setup fee:** $0-$3,500 for attorney/legal review (optional if issuer has own counsel). Republic's legal partners offer flat-fee Form C compliance and review. UK/EU operations may charge £5k pre-registration + £5k launch fee + £2k annual nominee fee
+- **Staking requirement:** None — access is regulatory-based (KYC/accreditation), not token-based
+- **Gas/proof costs:** Minimal — Republic handles most operations off-chain. Token DPA (Deferred Purchase Agreement) doesn't require on-chain interaction until token delivery
+- **Revenue model:** (1) Success-based commission (6% cash + 2% securities) on every completed raise, (2) legal/advisory fees for offering structuring, (3) Republic Capital (in-house VC fund) co-investing in deals, (4) Republic Note (tokenized revenue share instrument), (5) managed services for ongoing SEC reporting and compliance
+
+> [!analysis] Republic's 6%+2% fee structure is the industry standard for regulated crowdfunding portals (Wefunder charges 7.5%, StartEngine charges 7-12%). The 2% securities component means Republic has equity/token upside in every deal — an alignment incentive. Zero investor fees and low setup costs ($0-3.5k) make it accessible for early-stage projects, but the 6% success fee is significant for larger raises. At $5M (Reg CF max), Republic would earn $300k in cash fees plus 2% of securities.
+
 ## Open Questions
 - Can a ZK-proof accredited investor attestation satisfy SEC's "reasonable steps" requirement under Rule 506(c)?
 - Is it possible to run a Reg CF raise with a decentralised funding portal (smart contract as intermediary)?

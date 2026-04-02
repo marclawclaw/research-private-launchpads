@@ -66,6 +66,22 @@ A Liquidity Bootstrapping Pool (LBP) is a dynamic AMM-based token sale mechanism
 
 See also: [[Token Sale Permissioning Mechanisms]], [[Fjord Foundry]]
 
+## Fee Structure
+
+> [!fact] Confirmed from Balancer v2/v3 docs, Balancer governance documentation, and LBP FAQ
+
+- **Platform fee (Balancer protocol):** Balancer takes 50% of swap fees collected by pools (protocol fee = percentage of swap fees, not of trade volume). E.g., if a pool charges 2% swap fee, Balancer takes 1% of that, not of the trade amount
+- **Swap fee (configurable by pool creator):** 0.01% to 10%, set at pool creation. LBP creators typically set 1-5% initially, sometimes starting high (4-5%) to discourage early sniping and reducing over time. V3 has no Vault-level limits on swap fee percentage
+- **Pool creation fee:** No explicit pool creation fee. Gas costs for deploying the smart pool contract (~$50-200 on Ethereum mainnet depending on gas prices)
+- **Participant fee (buyer):** Swap fee only (set by pool creator, see above). No additional platform-level buyer fee
+- **Pool creator fee (V3):** V3 introduces an optional pool creator swap fee and yield fee (both start at 0%, can be set later by pool creator). This allows LBP creators to extract additional revenue
+- **Listing/setup fee:** None — permissionless pool creation. Anyone can create an LBP via Balancer directly (requires smart contract interaction) or via Fjord Foundry (which adds its own 5% fee)
+- **Staking requirement:** None — fully permissionless
+- **Gas/proof costs:** Ethereum gas fees for pool creation, swaps, weight updates (`pokeWeights`), and liquidity removal. Can be $50-500+ per transaction on Ethereum mainnet. L2 deployments significantly reduce costs
+- **Revenue model:** Balancer protocol earns from 50% share of all swap fees across all pools. $BAL token governance controls fee parameters. Yield fees (50%) on yield-bearing assets in boosted pools (V3)
+
+> [!analysis] LBP costs are highly variable — the total cost to a project is swap fee configuration (their choice) + gas costs (network-dependent) + Balancer's protocol cut (50% of swap fees). Using Fjord Foundry adds a 5% flat fee on collateral but provides a no-code UI and marketing. Direct Balancer LBP deployment is cheaper but requires technical sophistication. On Ethereum mainnet, gas costs for the full LBP lifecycle (create pool → weight shifts → remove liquidity) can easily exceed $1,000, making L2 deployment increasingly attractive.
+
 ## Open Questions
 - Can LBPs be combined with ZK-proof identity gating (e.g., prove KYC without revealing address)?
 - How does Fjord's "zero liquidity LBP" work at the smart contract level vs. classic Balancer LBP?
