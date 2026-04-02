@@ -51,6 +51,21 @@ A Liquidity Bootstrapping Pool (LBP) is a dynamic AMM-based token sale mechanism
 >
 > However, none of these provide a *right to refund* after purchase. A buyer who overpays has no recourse other than selling back at market price.
 
+## Allowlist & Access Control
+
+> [!fact] LBP mechanism confirmed as inherently permissionless from Balancer and Fjord docs
+
+- **Gating method:** Open by default — LBPs are permissionless AMM pools. Any wallet can interact with the smart contract. Permissioning is an optional overlay, not native to the mechanism
+- **Enforcement:** On-chain (smart contract level) — LBP pool contracts on Balancer do not include native allowlist logic. Platforms like [[Fjord Foundry]] add off-chain whitelist gating at the UI/platform layer. Custom implementations could add Merkle proof checks or access control modifiers to the pool interaction functions
+- **Tiered access:** No — LBPs have no native concept of tiers or allocation sizes. All participants interact with the same AMM pool at market price. Per-wallet limits are not built into standard LBP contracts (Fjord adds this for tiered fixed-price sales, not for LBPs)
+- **Geo-blocking:** Not at protocol level. Platform implementations (Fjord, Copper) may add UI-level geo-blocking. The underlying smart contracts are permissionless
+- **Phased rounds:** Single phase — LBPs run as a continuous sale with declining price curve. No whitelist-then-public structure. The weight shift schedule creates an implicit time-gating: early buyers pay more, patient buyers get better prices
+- **Sybil resistance:** None at protocol level. LBPs are designed for open participation. Anti-bot properties come from the pricing mechanism (high starting price deters sniping), not from identity or stake requirements. Front-running is mitigated by optional swap fees (up to 10%) and high initial price
+
+> [!analysis] The LBP's access control philosophy is deliberately minimal — the mechanism's strength is fair price discovery through open markets, not restricted access. Adding permissioning (whitelists, KYC) to an LBP is conceptually in tension with the open-access ethos but practically necessary for compliance. The design space for "permissioned LBP" (e.g., Merkle-gated pool interactions, ZK-proof KYC checks before swap) is under-explored and represents an opportunity for privacy-preserving fair price discovery in regulated contexts.
+
+See also: [[Token Sale Permissioning Mechanisms]], [[Fjord Foundry]]
+
 ## Open Questions
 - Can LBPs be combined with ZK-proof identity gating (e.g., prove KYC without revealing address)?
 - How does Fjord's "zero liquidity LBP" work at the smart contract level vs. classic Balancer LBP?

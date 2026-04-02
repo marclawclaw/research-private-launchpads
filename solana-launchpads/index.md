@@ -14,6 +14,7 @@
 | [Streamflow Finance - Token Distribution Platform](./Streamflow%20Finance%20-%20Token%20Distribution%20Platform.md) | competitor | $1.4B TVL Solana vesting/distribution infra; 28.5K projects; white-label portals; SDK |
 | [Token Vesting Schedules](./Token%20Vesting%20Schedules.md) | concept | Types (linear/cliff/milestone/randomized), stakeholder groups, on-chain vs off-chain comparison |
 | [Solana Launchpad Ecosystem Overview](./Solana%20Launchpad%20Ecosystem%20Overview.md) | summary | Ecosystem map: Pump.fun (permissionless) vs Magic Eden/DAOs.fun/Solster (structured IDOs) |
+| [Metaplex Genesis](./Metaplex%20Genesis.md) | competitor | Most complete Solana-native TGE platform with on-chain KYC gating, allowlists/denylists, and geo-blocking |
 
 ---
 

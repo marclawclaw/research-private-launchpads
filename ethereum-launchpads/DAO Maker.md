@@ -60,6 +60,30 @@ DAO Maker is an Ethereum-based launchpad that emphasises long-term project incub
 - **Secondary market confidence**: The toll bridge ensures market price isn't excessively distorted from primary buyers' target exit prices, since primary buyers can sell early (at a burn cost) rather than waiting for scheduled releases
 - **Retained refund rights**: All original DYCO refund mechanics (USD backing, burn-on-refund, mirror flips) remain intact in v2
 
+## Allowlist & Access Control
+
+> [!fact] Confirmed from CryptoRank, CryptoTotem, and DAO Maker platform docs
+
+- **Gating method:** Staking ($DAO tokens) + mandatory platform-level KYC
+- **Enforcement:** Hybrid — on-chain staking verification (DAO Power derived from staked $DAO), off-chain KYC managed centrally by DAO Maker platform
+- **Tiered access:** Yes — 7-tier system based on staked $DAO amount:
+  - Tier 0: 250 DAO = 250 DAO Power (0% bonus)
+  - Tier 1: 2,000 DAO = 2,100 DAO Power (5% bonus)
+  - Tier 2: 4,000 DAO = 4,400 DAO Power (10% bonus)
+  - Tier 3: 10,000 DAO = 11,500 DAO Power (15% bonus)
+  - Tier 4: 25,000 DAO = 30,000 DAO Power (20% bonus)
+  - Tier 5: 50,000 DAO = 62,500 DAO Power (25% bonus)
+  - Tier 6: 100,000 DAO = 130,000 DAO Power (30% bonus)
+  - Higher tiers get non-linear bonus multipliers on DAO Power, increasing winning chances disproportionately
+  - "Early adopters" (staked 500+ DAO before Sep 2021) have lower entry threshold; new users need minimum 2,000 DAO
+- **Geo-blocking:** Yes — platform-level KYC screens for restricted jurisdictions (US excluded from most SHOs)
+- **Phased rounds:** Yes — SHOs typically have priority/early rounds for high-tier holders (Tranche 0), then subsequent tranches for lower tiers. Some sales include FCFS public rounds after SHO
+- **Sybil resistance:** Strong — combination of mandatory KYC (one identity per account) + economic staking requirement ($DAO must be locked). DAO Power is "allocated" to specific SHOs and locked for 15 days during the selection process; if not selected, DAO Power certificate is returned for redemption
+
+> [!analysis] DAO Maker's tier system is plutocratic by design — Tier 6 requires ~$14k at current prices (100k DAO) but gets 30% bonus on DAO Power. The non-linear bonus means whales have disproportionate advantage. However, mandatory KYC prevents Sybil attacks, making it one of the most Sybil-resistant launchpad models. The tradeoff is full centralisation of identity management.
+
+See also: [[Token Sale Permissioning Mechanisms]], [[Strong Holder Offering (SHO)]]
+
 ## Open Questions
 - Is SHO smart contract open-source? What chain is the allocation contract deployed on?
 - ~~How does DYCO's refund mechanism work technically?~~ → **Resolved:** See Refund & Participant Protection section above

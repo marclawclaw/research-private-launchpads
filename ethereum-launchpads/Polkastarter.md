@@ -45,6 +45,38 @@ Polkastarter is a decentralised IDO launchpad (originally Polkadot-based, now mu
 
 > [!analysis] Polkastarter's participant protection model relies on *access gating* (POLS staking + lottery) rather than post-purchase refund rights. The theory is that requiring 7-day staking commitment and lottery selection filters for committed participants, reducing the need for refund mechanisms. However, this provides no protection against post-launch token underperformance.
 
+## Allowlist & Access Control
+
+> [!fact] Confirmed from Polkastarter blog (tier system, allowlist updates), support docs, and POLS Power guide
+
+- **Gating method:** Token staking ($POLS) + lottery system + per-project KYC
+- **Enforcement:** Hybrid — on-chain staking/holding verification (POLS in wallet or staking contract for 7+ days), off-chain lottery selection and KYC handled per-project
+- **Tiered access:** Yes — POLS Power tier system with booster multipliers:
+  - Minimum: 1,000 POLS Power (raised from 250 in 2024) = eligibility for allowlist lottery
+  - Every 1,000 POLS Power = 4 lottery tickets (1 ticket per 250 POLS)
+  - Tier 1,000+ POLS Power: 1.1x booster (every ticket worth 1.1 tickets)
+  - Tier 3,000+ POLS Power: 1.15x booster
+  - Tier 10,000+ POLS Power: 1.20x booster
+  - Tier 30,000+ POLS Power: 1.25x booster + No Cooldown between IDOs
+  - Tier 50,000+ POLS Power: Guaranteed spots in sales (added 2024)
+  - Multiple tickets increase winning chances but NOT the maximum allocation — egalitarian allocation once selected
+- **POLS Power sources:** Three qualifying paths:
+  1. Hold POLS in wallet for minimum 7 days
+  2. Hold POLS LP tokens (Uniswap/PancakeSwap) for minimum 7 days
+  3. Stake POLS on dashboard (instant eligibility but tokens locked for 7 days)
+- **Geo-blocking:** Varies per project — KYC is delegated to individual projects (not centrally managed by Polkastarter). Each project can implement its own jurisdictional restrictions
+- **Phased rounds:** Yes — each IDO has its own allowlist application window. Users must actively apply per IDO. Whitelist-only round → if any tokens remain, may move to FCFS
+- **Sybil resistance:** Medium-strong — combination of:
+  - 7-day minimum hold/stake requirement (prevents wash trading and last-minute gaming)
+  - Economic cost of acquiring 1,000+ POLS
+  - Per-project KYC (identity verification reduces multi-wallet attacks)
+  - Cooldown period between IDO participations for lower tiers
+  - Lottery system means even whales can't guarantee selection (except 50k+ tier)
+
+> [!analysis] Polkastarter's lottery model is more egalitarian than DAO Maker's pure tier system — even small holders (1,000 POLS) can win allocation, while DAO Maker effectively locks out sub-2,000 DAO holders. However, the 50k+ guaranteed tier (added 2024) introduces a whale-friendly escape hatch. The 7-day hold requirement is an elegant Sybil-resistance mechanism that doesn't require KYC, but per-project KYC delegation means inconsistent enforcement across the platform.
+
+See also: [[Token Sale Permissioning Mechanisms]], [[Off-Chain Whitelist Pattern (Merkle Proof)]]
+
 ## Open Questions
 - Is the POLS allowlist contract open source and audited?
 - What's Polkastarter's current traction in 2025/2026 — is it still active?

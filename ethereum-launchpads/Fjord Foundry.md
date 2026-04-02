@@ -45,6 +45,25 @@ Fjord Foundry is an Ethereum-based token sale platform specialising in Liquidity
 
 > [!analysis] The LBP's declining-price mechanism provides *implicit* buyer protection: since price starts high and falls over time, patient buyers get better prices. Early buyers who overpay can sell back during the sale at market price, but this is not a guaranteed refund. Fjord's vesting feature (optional cliff + linear vesting post-LBP) locks tokens, further removing any post-sale refund possibility.
 
+## Allowlist & Access Control
+
+> [!fact] Confirmed from Fjord Foundry docs (tiered sale guide, LBP FAQ) and Bitbond review
+
+- **Gating method:** Optional project-managed whitelist (address-based CSV upload) OR fully open (no gating). Fjord explicitly rejects platform-level token-gating — $FJO is NOT required to participate
+- **Enforcement:** Off-chain (platform-level). Project creators upload a CSV of whitelisted wallet addresses during sale setup. Enforcement appears to be at the Fjord platform/UI layer, not via on-chain Merkle proofs. No evidence of on-chain whitelist contracts
+- **Tiered access:** Yes — Fjord supports tiered fixed-price sales with per-tier configuration:
+  - Each tier can have different token amounts for sale and price per token
+  - Minimum and maximum allocation per user configurable per tier
+  - Tiers are project-defined, not platform-wide (unlike DAO Maker's universal tier system)
+  - LBPs themselves have no per-wallet limits or tiered access
+- **Geo-blocking:** Yes — project creators can specify "Geo-blocked Countries" during sale setup to restrict participation by region. Enforcement is at the platform level
+- **Phased rounds:** Yes — tiered sales support Seed, Private, and Public round types. LBPs are typically single-phase but the declining-price curve creates an implicit time-gated advantage for patient buyers
+- **Sybil resistance:** Weak for LBPs (open access, no identity verification). For whitelisted tiered sales, Sybil resistance depends on how the project curates the whitelist (Fjord provides the tool, not the curation). Anti-Snipe feature can be enabled to prevent bot participation. No mandatory KYC at the platform level
+
+> [!analysis] Fjord's permissioning philosophy is fundamentally different from DAO Maker/Polkastarter: access control is a project-side option, not a platform-enforced requirement. This makes Fjord maximally flexible but means Sybil resistance is only as strong as each project's whitelist curation process. The LBP mechanism's anti-bot properties (high starting price, declining curve) provide structural protection but not identity-level Sybil resistance.
+
+See also: [[Token Sale Permissioning Mechanisms]], [[Liquidity Bootstrapping Pool (LBP)]]
+
 ## Open Questions
 - Does Fjord support on-chain KYC/identity proofs for whitelists, or only address-based allowlists?
 - What chains beyond Ethereum are live?
