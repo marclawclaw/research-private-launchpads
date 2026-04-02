@@ -15,6 +15,7 @@
 | [Token Vesting Schedules](./Token%20Vesting%20Schedules.md) | concept | Types (linear/cliff/milestone/randomized), stakeholder groups, on-chain vs off-chain comparison |
 | [Solana Launchpad Ecosystem Overview](./Solana%20Launchpad%20Ecosystem%20Overview.md) | summary | Ecosystem map: Pump.fun (permissionless) vs Magic Eden/DAOs.fun/Solster (structured IDOs) |
 | [Metaplex Genesis](./Metaplex%20Genesis.md) | competitor | Most complete Solana-native TGE platform with on-chain KYC gating, allowlists/denylists, and geo-blocking |
+| [Bonding Curve Virtual Reserve Mechanics](./Bonding%20Curve%20Virtual%20Reserve%20Mechanics.md) | concept | How pump.fun and Meteora DBC implement virtual vs real reserves — synthetic pricing params vs actual token holdings |
 
 ---
 
