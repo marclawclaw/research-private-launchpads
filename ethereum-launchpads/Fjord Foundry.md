@@ -16,19 +16,43 @@ Fjord Foundry is an Ethereum-based token sale platform specialising in Liquidity
 
 ### Scale & Traction
 
-> [!fact] Confirmed from Bitbond review (Sep 2025), Fjord Foundry website, RootData
-> - **Total funds raised across all LBPs:** >$1.1 billion since 2021 (per fjordfoundry.com homepage)
+> [!fact] Sources: DefiLlama API (`api.llama.fi/summary/fees/fjord-foundry`) accessed Apr 2 2026; Bitbond review (Sep 2025); fjordfoundry.com
+> - **Total funds raised across all LBPs:** >$1.1 billion since 2021 (per fjordfoundry.com)
 > - **Total swap volume:** ~$1.5 billion (per RootData)
 > - **Total LBPs launched:** 717 (per Bitbond, Sep 2025)
 > - **Total participants:** 106,762
-> - **Total fees generated:** $30 million
+> - **Total protocol fees (all-time):** $20.47M (DefiLlama)
 > - **Own FJO token LBP:** raised $15.3M (April 2024, highest single LBP raise of 2024)
 
-> [!outdated] No per-year breakdown available. Fjord (formerly Copper Launch) has been active since 2021, but does not publish annual volume reports. The $1.1B is cumulative since inception across all chains. Approximate phasing based on market cycles:
-> - **2021-2022:** Bulk of early volume (NFT/DeFi boom, launched as Copper)
-> - **2023:** Bear market slowdown (rebranded to Fjord Foundry)
-> - **2024:** Recovery; own FJO LBP ($15.3M) was the largest single raise
-> - **2025:** Continued multi-chain expansion; FJO token down 70% from peak
+### Protocol Fees by Quarter (DefiLlama)
+
+| Quarter | Fees | Notes |
+|---------|------|-------|
+| Q3 2021 | $174.7K | Launch (as Copper) |
+| Q4 2021 | $4.22M | NFT/DeFi boom peak |
+| Q1 2022 | $1.53M | |
+| Q2 2022 | $446K | Market downturn begins |
+| Q3 2022 | $71.6K | Bear market |
+| Q4 2022 | $59.8K | |
+| Q1 2023 | $91.7K | |
+| Q2 2023 | $44.2K | Trough |
+| Q3 2023 | $26.2K | |
+| Q4 2023 | $406K | Recovery |
+| **Q1 2024** | **$8.79M** | **Peak quarter** — FJO LBP + bull market |
+| Q2 2024 | $4.53M | |
+| Q3 2024 | ~$0 | Near-complete activity drop |
+| Q4 2024 | $90K | |
+| 2025 | $0 | No fee activity tracked on DefiLlama |
+
+**Annual totals (DefiLlama):**
+- **2021:** $4.39M (Q3+Q4)
+- **2022:** $2.18M
+- **2023:** $568K
+- **2024:** $13.41M (dominated by Q1 bull market)
+- **2025:** $0 tracked (platform may still operate but activity not captured)
+- **All-time:** $20.47M
+
+> [!analysis] Fjord's fee history tells a clear story: massive Q4 2021 launch spike ($4.2M), then a brutal 2022-2023 bear market collapse (−97%), partial recovery in 2024 around the FJO token launch (Q1 2024 = $8.79M), then effectively zero activity from Q3 2024 onwards per DefiLlama. The $1.1B total raised figure on their homepage likely reflects the 2021-2024 cumulative including the initial bull run. The platform appears largely inactive in 2025.
 
 ### Mechanism
 - Primary mechanism: LBPs (dynamic pricing, price starts high and decreases over time based on weight shifts)

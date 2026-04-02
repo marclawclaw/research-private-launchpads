@@ -40,13 +40,33 @@ Securitize is an SEC-registered transfer agent and broker-dealer providing full-
 | Q2 2025 | $3.9B |
 | Q3 2025 | $4.6B |
 
-### Annual Summary
+### Protocol Fees by Quarter (DefiLlama)
 
-| Year | AUM (year-end) | Revenue | EBITDA | Key Milestone |
-|------|---------------|---------|--------|---------------|
-| 2024 | ~$1.3B | $19M | -$16M (loss) | BlackRock BUIDL launch; SEC-registered |
-| 2025E | ~$4B | $69M (est.) | $17M (est.) | 3.5x AUM growth; $3B+ net inflows; $1.25B SPAC announced |
-| 2026E | ~$9B (proj.) | $110M (proj.) | $32M (proj.) | Projected 283% AUM CAGR 2024-2026 |
+> [!fact] Source: DefiLlama API (`api.llama.fi/summary/fees/securitize`), accessed Apr 2 2026
+
+| Quarter | Fees | Notes |
+|---------|------|-------|
+| Q4 2024 | $43K | Initial tracking begins |
+| Q1 2025 | $2.48M | |
+| Q2 2025 | $3.66M | |
+| Q3 2025 | $3.73M | |
+| **Q4 2025** | **$13.56M** | **Peak** |
+| Q1 2026 | $12.20M | Sustained growth |
+
+**Annual totals (DefiLlama):**
+- **2024:** $43K (partial — tracking started Q4)
+- **2025:** $23.41M
+- **All-time:** $35.68M
+
+### Annual Summary (AUM + Financials)
+
+| Year | AUM (year-end) | Protocol Fees | Revenue (reported) | EBITDA | Key Milestone |
+|------|---------------|--------------|-------------------|--------|---------------|
+| 2024 | ~$1.3B | $43K (DL, partial) | $19M | -$16M (loss) | BlackRock BUIDL launch; SEC-registered |
+| 2025E | ~$4B | $23.4M (DL) | $69M (est.) | $17M (est.) | 3.5x AUM growth; $3B+ net inflows; $1.25B SPAC announced |
+| 2026E | ~$9B (proj.) | $12.2M (Q1 only) | $110M (proj.) | $32M (proj.) | Projected 283% AUM CAGR 2024-2026 |
+
+> [!analysis] Securitize's on-chain fee activity (DefiLlama) shows strong and accelerating momentum — Q4 2025 ($13.6M) and Q1 2026 ($12.2M) are at all-time highs. The protocol fees tracked by DefiLlama are a subset of total reported revenue ($19M for full 2024) — the difference reflects off-chain/service revenue (compliance services, transfer agent fees, etc.). The trajectory is sharply up-and-to-the-right with no sign of slowdown, unlike Pump.fun/Fjord which peaked in 2024-early 2025.
 
 > [!fact] Key growth metrics from Securitize's year-in-review
 > - Tokenized assets grew from $1B to $3.4B in 2025 (240% growth)
