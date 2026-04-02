@@ -17,12 +17,44 @@ Securitize is an SEC-registered transfer agent and broker-dealer providing full-
 ## Key Facts
 - SEC-registered transfer agent and broker-dealer (via Securitize Markets)
 - DS Protocol: layered smart contract architecture with Registry Service, Compliance Service, Trust Service
-- ~$2B in on-chain tokenized securities issued
+- **See Scale & Traction below for AUM history**
 - Supports Reg D, Reg S, Reg A+, and Reg CF offerings
 - DS Token is ERC-20 superset — every transfer checked against Compliance Service before execution
 - DSToken v4 (latest): adds Transfer Agent role, real-time rebasing, EIP-712 investor self-whitelisting
 - Launching Converge chain (with Ethena) — institutional DeFi blockchain for permissioned DeFi
 - Open-source reference implementation: `securitize-io/dstoken` on GitHub
+
+## Scale & Traction
+
+> [!fact] Confirmed from SEC filings (Cantor Equity Partners SPAC, Oct/Nov 2025), Securitize 2025 year-in-review, Forbes interview
+
+### Assets Tokenized (Quarterly, from SEC investor presentation)
+
+| Period | Assets Tokenized (cumulative) |
+|--------|------------------------------|
+| Q1 2024 | $0.6B |
+| Q2 2024 | $0.9B |
+| Q3 2024 | $1.0B |
+| Q4 2024 | $1.3B |
+| Q1 2025 | $2.9B |
+| Q2 2025 | $3.9B |
+| Q3 2025 | $4.6B |
+
+### Annual Summary
+
+| Year | AUM (year-end) | Revenue | EBITDA | Key Milestone |
+|------|---------------|---------|--------|---------------|
+| 2024 | ~$1.3B | $19M | -$16M (loss) | BlackRock BUIDL launch; SEC-registered |
+| 2025E | ~$4B | $69M (est.) | $17M (est.) | 3.5x AUM growth; $3B+ net inflows; $1.25B SPAC announced |
+| 2026E | ~$9B (proj.) | $110M (proj.) | $32M (proj.) | Projected 283% AUM CAGR 2024-2026 |
+
+> [!fact] Key growth metrics from Securitize's year-in-review
+> - Tokenized assets grew from $1B to $3.4B in 2025 (240% growth)
+> - Tokenized treasuries grew from $653M to $2.4B in 2025
+> - >$3B in net inflows in 2025 (largest in tokenization industry)
+> - Revenue grew 9x in 18 months (per Forbes/CEO interview, Nov 2025)
+
+> [!analysis] Securitize is on a hypergrowth trajectory driven by institutional RWA tokenization (BlackRock, Apollo, KKR). The AUM curve is exponential: $1.3B → $4B → $9B projected. Revenue CAGR of ~260% from 2024-2026. However, still operating at a loss in 2024 (EBITDA -$16M), expected to turn profitable in 2025. The SPAC deal ($1.25B) values the company at a premium reflecting institutional conviction. This is a fundamentally different market segment (regulated securities) than Pump.fun/Fjord (permissionless tokens), but demonstrates the scale of demand for compliant on-chain issuance.
 
 ## Allowlist & Access Control
 

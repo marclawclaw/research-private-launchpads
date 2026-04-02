@@ -14,14 +14,32 @@ Pump.fun is the dominant permissionless memecoin launchpad on Solana, using bond
 
 ## Key Facts
 
-> [!fact] Confirmed from multiple sources (CoinDesk, Tokenomics.com, CryptoPotato)
+> [!fact] Confirmed from multiple sources (CoinDesk, Tokenomics.com, CryptoPotato, Yahoo Finance, AInvest)
 > - **Cumulative trading volume:** >$150 billion (as of Dec 2025)
 > - **Cumulative protocol revenue:** >$818 million (as of early 2026)
-> - **Peak monthly revenue:** $137.12 million (January 2025)
 > - **Tokens launched:** 11.7 million via Metaplex (H1 2025 alone)
 > - **Pumpswap DEX TVL:** ~$140 million (after March 2025 launch)
 > - **PUMP token sale:** $500 million raised (July 2025)
-> - **Monthly revenue run-rate:** ~$45M distributed to token holders via buybacks
+
+### Quarterly Revenue Breakdown
+
+> [!fact] Confirmed from Yahoo Finance (Dec 2025) and AInvest (Jan 2026)
+
+| Period | Quarterly Revenue | Notes |
+|--------|------------------|-------|
+| Q1 2024 | $2.45M | Launch phase |
+| Q2 2024 | $47.9M | Rapid growth |
+| Q3 2024 | ~$100M (est.) | Interpolated |
+| Q4 2024 | $207.3M | |
+| Q1 2025 | $256.2M | **All-time peak** ($137M in Jan alone) |
+| Q2 2025 | Declining | Post-peak cooldown |
+| Q3 2025 | Declining | |
+| Q4 2025 | $70M | Stabilized at lower level |
+
+**Annual totals (estimated):**
+- **2024:** ~$358M (Q1-Q4 sum; launched Jan 2024)
+- **2025:** ~$460M+ (peak year despite H2 decline)
+- **Cumulative:** $818M+ through early 2026
 
 > [!fact] Mechanism details
 > - Bonding curve model: token price increases algorithmically as supply is purchased

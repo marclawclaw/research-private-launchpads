@@ -16,13 +16,19 @@ Fjord Foundry is an Ethereum-based token sale platform specialising in Liquidity
 
 ### Scale & Traction
 
-> [!fact] Confirmed from Bitbond review (Sep 2025)
-> - **Total funds raised across all LBPs:** >$1 billion
-> - **Total swap volume:** >$1.5 billion
-> - **Total LBPs launched:** 717
+> [!fact] Confirmed from Bitbond review (Sep 2025), Fjord Foundry website, RootData
+> - **Total funds raised across all LBPs:** >$1.1 billion since 2021 (per fjordfoundry.com homepage)
+> - **Total swap volume:** ~$1.5 billion (per RootData)
+> - **Total LBPs launched:** 717 (per Bitbond, Sep 2025)
 > - **Total participants:** 106,762
 > - **Total fees generated:** $30 million
 > - **Own FJO token LBP:** raised $15.3M (April 2024, highest single LBP raise of 2024)
+
+> [!outdated] No per-year breakdown available. Fjord (formerly Copper Launch) has been active since 2021, but does not publish annual volume reports. The $1.1B is cumulative since inception across all chains. Approximate phasing based on market cycles:
+> - **2021-2022:** Bulk of early volume (NFT/DeFi boom, launched as Copper)
+> - **2023:** Bear market slowdown (rebranded to Fjord Foundry)
+> - **2024:** Recovery; own FJO LBP ($15.3M) was the largest single raise
+> - **2025:** Continued multi-chain expansion; FJO token down 70% from peak
 
 ### Mechanism
 - Primary mechanism: LBPs (dynamic pricing, price starts high and decreases over time based on weight shifts)
