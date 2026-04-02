@@ -16,6 +16,7 @@
 | [Solana Launchpad Ecosystem Overview](./Solana%20Launchpad%20Ecosystem%20Overview.md) | summary | Ecosystem map: Pump.fun (permissionless) vs Magic Eden/DAOs.fun/Solster (structured IDOs) |
 | [Metaplex Genesis](./Metaplex%20Genesis.md) | competitor | Most complete Solana-native TGE platform with on-chain KYC gating, allowlists/denylists, and geo-blocking |
 | [Bonding Curve Virtual Reserve Mechanics](./Bonding%20Curve%20Virtual%20Reserve%20Mechanics.md) | concept | How pump.fun and Meteora DBC implement virtual vs real reserves — synthetic pricing params vs actual token holdings |
+| [Pump.fun](./Pump.fun.md) | competitor | Dominant permissionless memecoin launchpad on Solana; >$150B cumulative volume, $818M+ revenue, 11.7M tokens launched |
 
 ---
 

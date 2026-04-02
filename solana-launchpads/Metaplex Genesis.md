@@ -14,6 +14,21 @@ sources:
 Metaplex Genesis is a Solana-native smart contract framework for Token Generation Events (TGEs) supporting fair launches (Launch Pools), fixed-price presales, and uniform price auctions. It is the most complete Solana-native launch platform with built-in compliance hooks including KYC gating, wallet allowlists/denylists, and country-specific geo-blocking — all enforced at the smart contract level.
 
 ## Key Facts
+
+### Scale & Traction
+
+> [!fact] Confirmed from Metaplex Foundation blog (H1 2025 recap, monthly roundups, CoinMarketCap)
+> - **Metaplex total protocol revenue (all products):** >$36M cumulative; $13.7M in H1 2025
+> - **Genesis launchpad revenue:** $422K in August 2025 (240% monthly growth); Genesis + TM tokens drove 91-98% of protocol revenue
+> - **Total fungible tokens created via Metaplex:** >20 million (Sep 2025)
+> - **Unique wallets interacted:** 11.4 million cumulative (3.2M new in H1 2025)
+> - **Transaction value:** $2.9B across 121M signed transactions in H1 2025 (29% YoY increase)
+> - **Key integrations:** Pump.fun (11.7M tokens), Believe/LaunchCoin, Raydium LaunchLab (258K+ assets), Jup Studio, letsBONK
+> - **Genesis status:** Alpha → SDK launched Dec 2025 for third-party integrations
+
+> [!analysis] Genesis itself is still early (most of Metaplex's revenue comes from Token Metadata fees charged to platforms like Pump.fun, not from Genesis launchpad directly). Genesis revenue ($422K/month) is tiny compared to Pump.fun ($45M+/month). However, Genesis is the infrastructure layer — it powers the compliance/permissioning features that Pump.fun lacks.
+
+### Mechanism
 - Smart contract program: `GNS1S5J5AspKXgpjz6SvKL66kPaKWAhaGRhCqPRxii2B` (mainnet + devnet)
 - Three launch mechanisms: Launch Pool (proportional/fair), Presale (fixed price FCFS), Uniform Price Auction (bid-based)
 - Two launch types: Project (full control) and Memecoin (streamlined defaults — 1hr deposit, 50% allocation, 98% Raydium LP)

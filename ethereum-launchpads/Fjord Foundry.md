@@ -13,6 +13,18 @@ sources:
 Fjord Foundry is an Ethereum-based token sale platform specialising in Liquidity Bootstrapping Pools (LBPs). It supports both permissionless community sales (upvote-gated) and curated/partnered sales backed by Fjord or trusted launch partners. Optional whitelisting feature restricts participation to a curated participant list.
 
 ## Key Facts
+
+### Scale & Traction
+
+> [!fact] Confirmed from Bitbond review (Sep 2025)
+> - **Total funds raised across all LBPs:** >$1 billion
+> - **Total swap volume:** >$1.5 billion
+> - **Total LBPs launched:** 717
+> - **Total participants:** 106,762
+> - **Total fees generated:** $30 million
+> - **Own FJO token LBP:** raised $15.3M (April 2024, highest single LBP raise of 2024)
+
+### Mechanism
 - Primary mechanism: LBPs (dynamic pricing, price starts high and decreases over time based on weight shifts)
 - Two sale tiers: permissionless (community upvote) vs. curated/partnered (Fjord or launch partner backed)
 - Optional whitelist: project creators can enable participant whitelisting for exclusivity

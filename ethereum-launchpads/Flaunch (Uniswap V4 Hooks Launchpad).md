@@ -18,6 +18,8 @@ Flaunch is a memecoin launchpad on Base built by Flayer Labs that uses Uniswap V
 
 > [!fact] Flaunch launched on Base in late January 2025 and was the first production launchpad to leverage Uniswap V4 hooks at scale. It returned over $628,900 in revenue to creators within the first 2 days.
 
+> [!outdated] No cumulative volume, TVL, or total tokens launched data found as of April 2026. Flaunch is tracked on DefiLlama (defillama.com/protocol/flaunch) but the page was not accessible during crawl. The $628.9K figure is the only confirmed traction metric, from the first 48 hours post-launch. The platform is relatively new (Jan 2025) and may not yet have published aggregate statistics.
+
 ### Architecture: Hooks as Bonding Curve
 - The bonding curve logic lives inside a **Uniswap V4 hook contract** (specifically the `PositionManager` and `FairLaunch` contracts), not in a separate launchpad contract
 - All token pricing, supply release, and fee routing are executed via hook callbacks (`beforeSwap`, `afterSwap`, etc.) on the V4 PoolManager

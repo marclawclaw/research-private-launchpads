@@ -1,4 +1,15 @@
 
+## [2026-04-02 15:15] Quantitative Scale Data Gap Fill — ok
+- Notes written: 1 new (Pump.fun), 4 updated (Fjord Foundry, Polkastarter, Metaplex Genesis, Flaunch)
+- Sources crawled: coindesk.com, tokenomics.com, cryptopotato.com, coinlaunch.space, metaplex.foundation/blog, bitbond.com/fjord-foundry-review, polkastarter.medium.com, blog.polkastarter.com, coinmarketcap.com
+- Scale data added:
+  - Pump.fun: $150B+ cumulative volume, $818M+ revenue, 11.7M tokens, ~$140M Pumpswap TVL
+  - Fjord Foundry: $1B+ total raised, $1.5B+ swap volume, 717 LBPs, 106K participants, $30M fees
+  - Polkastarter: $46M+ raised across 110+ projects (last reported Q1 2022, flagged as outdated)
+  - Metaplex Genesis: $36M+ total protocol revenue, $422K/month Genesis revenue, 20M+ tokens created
+  - Flaunch: Only $628.9K first-48h creator revenue available; flagged as data gap (DefiLlama inaccessible)
+- Key finding: Pump.fun dwarfs all competitors by 2+ orders of magnitude ($150B volume vs Fjord's $1.5B). Polkastarter data is stale (2022). Flaunch is too new for cumulative metrics.
+
 ## [2026-04-02 14:10] RFP-015/016 PR Gap Analysis — ok
 - Notes written: 5 new notes, 1 updated (LBP), 1 index updated
 - Sources crawled: github.com/flayerlabs/flaunchgg-contracts, bankless.com/flaunch, blockworks.co/uniswap-v4, github.com/Uniswap/v2-periphery (UniswapV2Library.sol), medium.com/gnosis-auction, docs.molecule.to/bio.xyz, protocol.penumbra.zone, arxiv.org/pdf/2301.13785, ideausher.com/zk-allowlist, obj.umiacs.umd.edu/zk-creds, aztec.network/ticker

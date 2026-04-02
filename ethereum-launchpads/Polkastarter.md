@@ -14,6 +14,18 @@ sources:
 Polkastarter is a decentralised IDO launchpad (originally Polkadot-based, now multi-chain including Ethereum) that gates participation via POLS token staking. Access to IDO allowlists requires holding or staking POLS for a minimum 7 days, with allocation probability determined by a lottery system weighted by POLS Power.
 
 ## Key Facts
+
+### Scale & Traction
+
+> [!fact] Confirmed from Polkastarter blog (Q1 2022 recap) and CoinMarketCap
+> - **Total funds raised across all IDOs:** $46M+ across 105+ projects (as of Q1 2022)
+> - **Projects launched:** 110+ (as of June 2022, per CoinMarketCap)
+> - **POLS token DEX liquidity TVL:** ~$3.31M (as of Dec 2024)
+> - **Status:** Active but significantly reduced activity in 2024-2025 bear cycle; pivoted to gaming fund ($2M) and updated IDO processes
+
+> [!outdated] The $46M figure is from Q1 2022 — cumulative total is likely higher but no recent aggregate data published. Polkastarter has not published updated cumulative stats since 2022.
+
+### Mechanism
 - Native token: $POLS (ERC-20 / multi-chain)
 - Permissioning mechanism: POLS staking or LP token holding (Uniswap/PancakeSwap) for minimum 7 days
 - Allowlist system: lottery-based — 1,000 POLS Power = eligible; +250 POLS Power = +1 extra lottery ticket per IDO
