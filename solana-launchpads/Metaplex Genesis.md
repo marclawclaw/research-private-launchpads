@@ -58,11 +58,20 @@ Metaplex Genesis is a Solana-native smart contract framework for Token Generatio
 
 Genesis launched in **July 2025** (alpha) — no 2024 data exists for this product.
 
-| Month | Est. Genesis Revenue | Implied Funds Raised | Source |
-|-------|---------------------|---------------------|--------|
-| Jul 2025 | ~$124K | ~$6.2M | DefiLlama (Metaplex breakdown) |
-| Aug 2025 | ~$387K | ~$19.4M | DefiLlama; noted as $422K/month in quarterly data |
-| Oct 2025 | ~$370K | ~$18.5M | DefiLlama |
+| Month | Est. Genesis Revenue | Implied Funds Raised (rev ÷ 0.02) | % of Metaplex Total Revenue | Notable Launches |
+|-------|---------------------|-----------------------------------|-----------------------------|-----------------|
+| Jul 2025 | $124K | ~$6.2M | 5.4% | First month on mainnet |
+| Aug 2025 | $387K | ~$19.4M | 17% | $CARDS, $PORTALS (3.4x MoM growth) |
+| Sep 2025 | Est. ~$400-500K | ~$20-25M | Part of 98% combined w/ TM | GOATED ($800K raised in 13 seconds) |
+| Oct 2025 | $370K | ~$18.5M | 18% (highest share) | PlaySolana $2.6M, dm.fun |
+| Nov 2025 | Est. ~$200-300K | ~$10-15M | — | Beamable $1.3M |
+| Dec 2025 | ~$0 | ~$0 | 0% | Alpha launches paused for SDK rollout |
+
+> [!fact] Jul, Aug, and Oct figures confirmed from Metaplex monthly roundups and DefiLlama breakdowns.
+
+> [!analysis] Sep, Nov, and Dec figures are estimates derived from quarterly totals and known launch activity. Sep and Nov are interpolated from Q3/Q4 quarterly data minus confirmed months.
+
+> [!analysis] Per-period figures are more meaningful than cumulative for launch platforms — they show demand trajectory and seasonal patterns. Genesis revenue peaked in Aug–Oct 2025 then declined as the alpha wound down, illustrating how monthly granularity reveals trends that cumulative totals obscure.
 
 - **Cumulative Genesis revenue (Jul–Nov 2025):** >$1.1M, implying **~$55–70M total funds raised** through the alpha period
 - **Notable individual launches:** PlaySolana ($2.6M raised), GOATED ($800K), Beamable ($1.3M)

@@ -25,23 +25,25 @@ Pump.fun is the dominant permissionless memecoin launchpad on Solana, using bond
 
 > [!fact] Source: DefiLlama API (`api.llama.fi/summary/fees/pump.fun`), accessed Apr 2 2026
 
-| Quarter | Fees/Revenue | Notes |
-|---------|-------------|-------|
-| Q1 2024 | $2.45M | Launch phase |
-| Q2 2024 | $47.90M | 19x QoQ growth |
-| Q3 2024 | $63.53M | |
-| Q4 2024 | $207.32M | Memecoin mania peak |
-| **Q1 2025** | **$263.11M** | **All-time peak quarter** |
-| Q2 2025 | $142.22M | Post-peak decline begins |
-| Q3 2025 | $101.44M | |
-| Q4 2025 | $76.51M | |
-| Q1 2026 | $81.80M | Slight recovery |
+| Quarter | Fees/Revenue | Implied Volume (fees ÷ 0.01) | Notes |
+|---------|-------------|-------------------------------|-------|
+| Q1 2024 | $2.45M | ~$245M | Launch phase |
+| Q2 2024 | $47.90M | ~$4.79B | 19x QoQ growth |
+| Q3 2024 | $63.53M | ~$6.35B | |
+| Q4 2024 | $207.32M | ~$20.73B | Memecoin mania peak |
+| **Q1 2025** | **$263.11M** | **~$26.31B** | **All-time peak quarter** |
+| Q2 2025 | $142.22M | ~$14.22B | Post-peak decline begins |
+| Q3 2025 | $101.44M | ~$10.14B | |
+| Q4 2025 | $76.51M | ~$7.65B | |
+| Q1 2026 | $81.80M | ~$8.18B | Slight recovery |
+
+> [!analysis] **Implied volume derivation:** Pump.fun charges 1% on bonding curve trades, so implied trading volume = fees ÷ 0.01. These are estimates — actual volume may differ due to fee-exempt transactions, Pumpswap DEX fees (separate fee tier), and promotional periods. The volume column captures bonding curve activity only, not post-graduation Pumpswap trading.
 
 **Annual totals:**
-- **2024:** $321.19M
-- **2025:** $583.28M
-- **2026 (Q1):** $81.80M
-- **All-time cumulative:** $987.06M
+- **2024:** $321.19M fees / ~$32.12B implied volume
+- **2025:** $583.28M fees / ~$58.33B implied volume
+- **2026 (Q1):** $81.80M fees / ~$8.18B implied volume
+- **All-time cumulative:** $987.06M fees / ~$98.71B implied volume
 
 ### TVL History (DefiLlama — Pumpswap DEX)
 

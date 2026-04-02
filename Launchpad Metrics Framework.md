@@ -38,6 +38,17 @@ This note defines the correct metrics for comparing launchpad protocols and clar
 
 > [!analysis] **Deriving funds raised from revenue:** When only protocol revenue is available (e.g., from DefiLlama), funds raised can be estimated by dividing revenue by the fee rate. For example, [[Metaplex Genesis]] charges 2% on deposits, so $1M in revenue implies ~$50M in funds raised. This is approximate — refunds, partial fills, and fee-exempt transactions introduce error. Always mark derived figures as estimates.
 
+## Per-Period Metrics: Essential for Trend Analysis
+
+> [!analysis] Cumulative totals (e.g., "Pump.fun has generated $987M in all-time revenue") are useful for scale comparison but obscure the trajectory of demand. Per-period breakdowns — monthly or quarterly — are essential for understanding:
+
+- **Growth rates:** Month-over-month (MoM) and quarter-over-quarter (QoQ) changes reveal acceleration or deceleration. Pump.fun's 19x QoQ jump in Q2 2024 signals explosive adoption; the subsequent decline from Q1 2025 onward signals market saturation.
+- **Seasonality:** Crypto launchpad activity correlates with broader market cycles. Q4 2024 and Q1 2025 were peak periods across Solana launchpads, coinciding with the memecoin mania. Monthly data reveals intra-quarter patterns (e.g., Genesis peaked in Aug–Oct 2025 then dropped off sharply in Dec).
+- **Demand trajectory:** A platform with $100M cumulative revenue could be growing ($10M → $20M → $30M → $40M per quarter) or dying ($40M → $30M → $20M → $10M). Only per-period data distinguishes these.
+- **Competitive timing:** Comparing per-period data across platforms reveals market share shifts — e.g., when Genesis gained share of Metaplex total revenue (18% in Oct 2025) vs when Pump.fun's dominance peaked.
+
+When deriving per-period volume from revenue data, always note the fee rate used and mark derived figures as estimates. See individual competitor notes ([[Metaplex Genesis]], [[Pump.fun]]) for per-period tables.
+
 ## When TVL IS Appropriate
 
 TVL remains the correct metric for protocols where capital is persistently locked:
