@@ -119,6 +119,22 @@ See also: [[Token Sale Permissioning Mechanisms]], [[Liquidity Bootstrapping Poo
 
 > [!analysis] Fjord's 5% fee on collateral raised is competitive and transparent — comparable to DAO Maker's 5% but without the additional participant-side fees (DAO Maker charges 5-30% on the buyer side). The zero-barrier-to-entry for both projects and participants makes Fjord one of the lowest-friction launchpads. However, since fees are only collected on successful raises, Fjord's revenue is highly dependent on market activity and launch volume.
 
+### Onchain fee enforcement (added 2026-04-09)
+
+> [!fact] Sources: [Fjord LBP FAQ](https://help.fjordfoundry.com/fjord-foundry-docs/for-sale-creators/faqs-creators/lbp-faq), [Fjord Token and Liquidity Claiming](https://help.fjordfoundry.com/fjord-foundry-docs/for-sale-creators/fjord-features/token-and-liquidity-claiming), accessed 2026-04-09
+
+Fjord LBPs have **two distinct onchain fee layers**:
+
+1. **Balancer swap fee (1 to 2%)**: enforced by Balancer's `LiquidityBootstrappingPool.sol` contract. Deducted from the input amount before the weighted math formula runs. Split 50/50 between pool LPs and Balancer protocol (per BIP-371). This fee affects the buyer's execution price on every swap.
+
+2. **Fjord platform fee (5% of collateral raised)**: collected at sale close when the creator calls the "Close sale" function. Fjord's wrapper contract (historically the Copper Launch proxy/LBPManager) acts as the Balancer pool controller. Only Fjord's contract can call `exitPool` on the underlying Balancer pool, allowing it to retain 5% of collateral before forwarding the remainder to the creator's wallet.
+
+The creator cannot bypass the 5% fee because they are not the Balancer pool owner; Fjord's wrapper contract holds that role. This is almost certainly onchain smart contract enforcement, though Fjord's LBP wrapper contract source code is not publicly available (the 2024 Cyfrin audit at [github.com/Cyfrin/2024-08-fjord](https://github.com/Cyfrin/2024-08-fjord) covered only the staking contracts, not the LBP wrapper).
+
+From the buyer's perspective, only the Balancer swap fee (1 to 2%) affects their execution price. The 5% platform fee reduces the creator's proceeds at close but is invisible during swaps.
+
+See also: [[Onchain LBP Fee Mechanics]]
+
 ## Sale Lifecycle & Close Mechanics
 
 > [!fact] Confirmed from Fjord Foundry official docs (LBP FAQ, Fixed Price Sale FAQ, Tiered Sale creation guide)
