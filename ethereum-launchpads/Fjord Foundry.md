@@ -111,7 +111,7 @@ See also: [[Token Sale Permissioning Mechanisms]], [[Liquidity Bootstrapping Poo
 > [!fact] Confirmed from Fjord Foundry docs, platform FAQ, and DefiLlama fee tracking
 
 - **Platform fee (issuer):** 5% of collateral raised — deducted from proceeds at the end of the LBP or fixed-price sale. No upfront cost to launch
-- **Participant fee (buyer):** None — no additional fee charged to buyers beyond the LBP swap price. Standard AMM swap fees may apply (configurable by sale creator, typically 1-2%, max 10%)
+- **Participant fee (buyer):** None — no additional fee charged to buyers beyond the LBP swap price. Standard AMM swap fees apply (2%, enforced onchain by the Balancer pool contract)
 - **Listing/setup fee:** None for permissionless (community upvote) sales. Curated/partnered sales may involve partnership agreements but no published upfront fee
 - **Staking requirement:** None — $FJO token is explicitly NOT required to participate in sales. Fjord's ethos rejects token-gating
 - **Gas/proof costs:** Standard Ethereum gas fees borne by participants for swap transactions. Multi-chain deployment reduces gas costs on L2s
@@ -125,13 +125,13 @@ See also: [[Token Sale Permissioning Mechanisms]], [[Liquidity Bootstrapping Poo
 
 Fjord LBPs have **two distinct onchain fee layers**:
 
-1. **Balancer swap fee (1 to 2%)**: enforced by Balancer's `LiquidityBootstrappingPool.sol` contract. Deducted from the input amount before the weighted math formula runs. Split 50/50 between pool LPs and Balancer protocol (per BIP-371). This fee affects the buyer's execution price on every swap.
+1. **Balancer swap fee (2%)**: enforced by Balancer's `LiquidityBootstrappingPool.sol` contract. Deducted from the input amount before the weighted math formula runs. Split 50/50 between pool LPs and Balancer protocol (per BIP-371). This fee affects the buyer's execution price on every swap.
 
 2. **Fjord platform fee (5% of collateral raised)**: collected at sale close when the creator calls the "Close sale" function. Fjord's wrapper contract (historically the Copper Launch proxy/LBPManager) acts as the Balancer pool controller. Only Fjord's contract can call `exitPool` on the underlying Balancer pool, allowing it to retain 5% of collateral before forwarding the remainder to the creator's wallet.
 
-The creator cannot bypass the 5% fee because they are not the Balancer pool owner; Fjord's wrapper contract holds that role. This is almost certainly onchain smart contract enforcement, though Fjord's LBP wrapper contract source code is not publicly available (the 2024 Cyfrin audit at [github.com/Cyfrin/2024-08-fjord](https://github.com/Cyfrin/2024-08-fjord) covered only the staking contracts, not the LBP wrapper).
+The creator cannot bypass the 5% fee because they are not the Balancer pool owner; Fjord's wrapper contract holds that role. This is almost certainly onchain smart contract enforcement, though Fjord's LBP wrapper contract source code is not publicly available (the 2024 Cyfrin audit at [github.com/Cyfrin/2024-08-fjord](https://github.com/Cyfrin/2024-08-fjord) covered staking, auction, token, and points contracts, but not the LBP wrapper).
 
-From the buyer's perspective, only the Balancer swap fee (1 to 2%) affects their execution price. The 5% platform fee reduces the creator's proceeds at close but is invisible during swaps.
+From the buyer's perspective, only the Balancer swap fee (2%) affects their execution price. The 5% platform fee reduces the creator's proceeds at close but is invisible during swaps.
 
 See also: [[Onchain LBP Fee Mechanics]]
 

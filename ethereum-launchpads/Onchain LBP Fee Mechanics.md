@@ -89,8 +89,7 @@ pools and LBPs, the owner can update the swap fee via
 contract. The valid range in v2 is **0.0001% to 10%** (1e12 to
 1e17 in 18-decimal fixed point).
 
-For Fjord Foundry LBPs, the swap fee is typically configured at
-**1 to 2%** by the sale creator.
+For Fjord Foundry LBPs, the swap fee is configured at **2%**.
 
 > [!fact] Source: [Fjord LBP FAQ](https://help.fjordfoundry.com/fjord-foundry-docs/for-sale-creators/faqs-creators/lbp-faq), accessed 2026-04-09
 
@@ -209,13 +208,13 @@ pool owner, only Fjord's contract can call `exitPool` on Balancer,
 allowing it to enforce the 5% deduction before forwarding
 proceeds.
 
-> [!analysis] The 5% fee is almost certainly enforced onchain by Fjord's wrapper contract, since the creator cannot call `exitPool` directly (they are not the Balancer pool owner). However, Fjord's LBP contract source code is not publicly available on GitHub (the 2024 Cyfrin audit covered only the staking contracts, not the LBP wrapper). The exact smart contract enforcement cannot be confirmed from public sources.
+> [!analysis] The 5% fee is almost certainly enforced onchain by Fjord's wrapper contract, since the creator cannot call `exitPool` directly (they are not the Balancer pool owner). However, Fjord's LBP contract source code is not publicly available on GitHub (the 2024 Cyfrin audit at github.com/Cyfrin/2024-08-fjord covered staking, auction, token, and points contracts, but not the LBP wrapper). The exact smart contract enforcement cannot be confirmed from public sources.
 
 ### Two fee layers in Fjord LBPs
 
 Fjord LBPs have two distinct fee layers, both onchain:
 
-1. **Balancer swap fee (1 to 2%)**: deducted from input on every
+1. **Balancer swap fee (2%)**: deducted from input on every
    swap, enforced by `LiquidityBootstrappingPool.sol`. Split 50/50
    between pool LPs and Balancer protocol.
 2. **Fjord platform fee (5%)**: deducted from accumulated collateral
